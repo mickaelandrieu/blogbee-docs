@@ -84,7 +84,7 @@ Then, add ``Main.twig`` file in the ``repository\Layout`` folder which will acts
         <!-- Helper to get the toolbar -->
         {{ this.bb5toolbar()|raw }}
 
-        <div class="container-fluid">
+        <div class="container-fluid" id="bb5-site-wrapper">
             <div class="header-section">
 
                 <header class="row header page-header">
