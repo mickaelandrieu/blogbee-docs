@@ -4,9 +4,9 @@ Day 4: the Content Model
 
 In the last episods:
 
- - [Day1: Setup and install BackBee](https://github.com/backbee/blogbee/blob/day1/doc/day1.md)
- - [Day2: Bootstrap of BlogBee project](https://github.com/backbee/blogbee/blob/day2/doc/day2.md)
- - [Day3: Explanation and layouts creation](https://github.com/backbee/blogbee/blob/day3/doc/day3.md)
+ - [Day1: Setup and install BackBee](day1.md)
+ - [Day2: Bootstrap of BlogBee project](day2.md)
+ - [Day3: Explanation and layouts creation](day3.md)
 
 Introduction
 ---------------

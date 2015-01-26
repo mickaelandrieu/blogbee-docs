@@ -3,8 +3,8 @@ Day 3: Explanation and layouts creation
 
 In the last episods:
 
- - [Day1: Setup and install BackBee](https://github.com/backbee/blogbee/blob/day1/doc/day1.md)
- - [Day2: Bootstrap of BlogBee project](https://github.com/backbee/blogbee/blob/day2/doc/day2.md)
+ - [Day1: Setup and install BackBee](day1.md)
+ - [Day2: Bootstrap of BlogBee project](day2.md)
 
 Introduction
 ---------------
