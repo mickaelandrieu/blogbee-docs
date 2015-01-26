@@ -3,7 +3,7 @@ Day 2: Bootstrap of BlogBee project
 
 In the last episod:
 
- - [Day 1: Setup and install BackBee](https://github.com/backbee/blogbee/blob/day1-doc/doc/day1.md)
+ - [Day 1: Setup and install BackBee](day1.md)
 
 Introduction
 ------------
