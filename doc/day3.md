@@ -83,7 +83,7 @@ Then, add ``Main.twig`` file in the ``repository\Layout`` folder which will acts
     <body>
         <!-- Helper to get the toolbar -->
         {{ this.bb5toolbar()|raw }}
-
+        <!-- #bb5-site-wrapper is very important as required by BackBee Editor -->
         <div class="container-fluid" id="bb5-site-wrapper">
             <div class="header-section">
 
