@@ -102,6 +102,9 @@ You can even connect to the "Edition mode", press  ``CTRL + ALT + B`` to show th
 
 ![BackBee Installed - Edition mode](http://i.imgur.com/3LBfnBL.png "BackBee Installed - Edition mode")
 
+
+*If you can't access BackBee welcome message, check both ``cache`` and ``log`` folders have the correct rights.*
+
 Final thoughts
 ============
 
