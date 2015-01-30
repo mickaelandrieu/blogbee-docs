@@ -68,7 +68,7 @@ Open a command line interface and get BackBee:
 
 Then on the ``public`` directory, launch the builtin server of PHP:
 
-    $ cd /path/to/your/folder/public && php -S blogbee.dev:8000/config.php
+    $ cd /path/to/your/folder/public && php -S blogbee.dev:8000/install.php
 
 And you should see the first installation step of BackBee:
 
