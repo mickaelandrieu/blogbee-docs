@@ -6,7 +6,7 @@ Introduction
 
 [BackBee](http://www.backbee.com) is an open source Content Management System (CMS) project built on top of Symfony Components and Doctrine 2.
 
-This tutorial describe the creation of real web application, we will say more on day 2 about the application and features we expect to be implemented.
+This tutorial describes the creation of real web application, we will say more on day 2 about the application and features we expect to be implemented.
 This kind of site is very popular and very easy to build with BackBee CMS, for instance you should take a look at [Medium](http://www.medium.com).
 
 This goal is to demonstrate that BackBee can be used to make websites with style and little efforts.
