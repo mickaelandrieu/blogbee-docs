@@ -51,7 +51,7 @@ On Unix/Linux based OS, you can add it into ``/etc/hosts`` file:
 
 #### PHP extensions and configuration
 
-You need to activate ``mb_string``, ``pdo_mysql`` and ``pdo_sqlite`` extensions.
+You need to activate ``mbstring``, ``pdo_mysql`` and ``pdo_sqlite`` extensions.
 Then you also need to set a correct date.timezone in your ``php.ini`` configuration file:
 
     [Date]
@@ -68,9 +68,9 @@ Open a command line interface and get BackBee:
 
 Then on the ``public`` directory, launch the builtin server of PHP:
 
-    $ cd /path/to/your/folder/public && php -S blogbee.dev:8000/install.php
+    $ cd /path/to/your/folder/public && php -S blogbee.dev:8000
 
-And you should see the first installation step of BackBee:
+And you should see the first installation step of BackBee (access [http://localhost:8000/install.php](http://localhost:8000/install.php)) in a web browser:
 
 ![BackBee Installer - first step](http://i.imgur.com/saok4nc.png "BackBee Installer - first step")
 
