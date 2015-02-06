@@ -31,6 +31,8 @@ Before installing BackBee, you need to check has everything installed and config
 
 First of all, you need to check that your computer has a friendly working environment for web development. At a minimum, you need a web server (Apache, for instance), a database engine (MySQL, PostgreSQL, SQLite, or any PDO-compatible database engine), and **PHP 5.4** or later.
 
+At least, you need to install [git](http://git-scm.com/).
+
 Also, you will need to install [Composer](https://getcomposer.org/) the dependency manager for PHP.
 
 Follow this link to install it if your are on [Linux/Unix based OS](https://getcomposer.org/doc/00-intro.md#globally) (like ubuntu or Mac OS X), Composer is also available on [Windows system](https://getcomposer.org/doc/00-intro.md#installation-windows).
