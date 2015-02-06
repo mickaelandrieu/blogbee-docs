@@ -45,7 +45,7 @@ Also, check your PHP version which should be 5.4 or least.
 
 
 Eventually, you need to set a domain name in your operating system.
-On Unix/Linux based OS, you can add it into ``/etc/hosts`` file:
+On Unix/Linux based OS, you can add it into ``/etc/hosts`` file, we will choose **blogbee.dev**:
 
     127.0.0.1   blogbee.dev
 
