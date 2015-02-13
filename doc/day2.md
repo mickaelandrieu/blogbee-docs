@@ -17,6 +17,8 @@ What for today?
 We will list the users stories to complete in order to realize the application.
 We will also make the fonctionnal mockups and make nice templates with Bootstrap 3 frontend framework.
 
+> Notice: this tutorial is **not** about learn Bootstrap3 css framework, but BackBee: if you don't know the framework, you can access [Bootstrap documentation here](http://getbootstrap.com/getting-started/).
+
 
 What is BlogBee?
 ----------------
@@ -114,7 +116,7 @@ Learning Bootstrap 3 front integration is out of scope of this tutorial, but to 
 
 ![Bootstrap static website](http://i.imgur.com/pTAkfDt.png "Bootstrap static website")
 
-Archive can be downloaded here in the [github repository](https://github.com/backbee/blogbee/archive/day1.zip).
+Archive can be downloaded here in the [github repository](https://github.com/backbee/blogbee/archive/day2.zip).
 
 
 Final thoughts
