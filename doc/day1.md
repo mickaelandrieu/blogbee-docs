@@ -66,7 +66,7 @@ Installation
 
 Open a command line interface and get BackBee:
 
-    $ composer create-project "backbee/backbee-standard" /path/to/your/folder 0.11.*@dev
+    $ composer create-project "backbee/backbee-standard" /path/to/your/folder "0.11.*@dev"
 
 Then on the ``public`` directory, launch the builtin server of PHP:
 
