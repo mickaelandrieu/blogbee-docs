@@ -1,7 +1,7 @@
 Day 2: Bootstrap of BlogBee project
 ===================================
 
-In the last episod:
+In the last episode:
 
  - [Day 1: Setup and install BackBee](day1.md)
 
@@ -14,8 +14,8 @@ Today is about the project specifications.
 What for today?
 ---------------
 
-We will list the users stories to complete in order to realize the application.
-We will also make the fonctionnal mockups and make nice templates with Bootstrap 3 frontend framework.
+We will list the user stories to complete in order to realize the application.
+We will also make the functional mockups and make nice templates with Bootstrap 3 frontend framework.
 
 > Notice: this tutorial is **not** about learn Bootstrap3 css framework, but BackBee: if you don't know the framework, you can access [Bootstrap documentation here](http://getbootstrap.com/getting-started/).
 
@@ -23,7 +23,7 @@ We will also make the fonctionnal mockups and make nice templates with Bootstrap
 What is BlogBee?
 ----------------
 
-BlogBee is Open-Source blog-publishing platform software that only does one thing, but does it well. It is easy to use, customize, extend, and embed into your website. It supports user and content management out of the box, and of course uses the latest Web technologies to enhance user experience.
+BlogBee is an Open-Source blog-publishing platform software that only does one thing, but does it well. It is easy to use, customize, extend, and embed into your website. It supports user and content management out of the box, and of course uses the latest Web technologies to enhance user experience.
 
 BlogBee is inspired by the famous [Medium website](https://medium.com/).
 
@@ -33,23 +33,23 @@ User stories
 We will have 3 types of users:
 
  - Admins: they can access to the admin panel and manage users and articles
- - Users: logged users can write an article, and manage his own account
- - Guests: they can comment article and/or share it through social networks
+ - Users: logged users can write an article, and manage their own account
+ - Guests: they can comment on articles and/or share them through social networks
 
 ### Homepage
 
 **Story HP1: On the homepage, any user can see the latest and top articles**
 
 On the BlogBee homepage a user should see a list of 3 recent active articles.
-He also see the 3 first top articles based on the number of readings.
+She also can see the 3 first top articles based on the number of readings.
 
 **Story HP2: On the homepage, any user can see the top contributors list**
 
 On the BlogBee homepage, a user should see a list of actual top contributors based on the number of articles they have published on the platform.
 
-**Story HP3: On the homepage, any user can connect to his account and/or register**
+**Story HP3: On the homepage, any user can connect to her account and/or register**
 
-On the BlogBee homepage, a guest can connect or register to the platform. If connected he can access his account management page.
+On the BlogBee homepage, a guest can connect or register to the platform. If connected she can access her account management page.
 
 **Story HP4: On the homepage, any user can filter the lists of article by category**
 
@@ -70,10 +70,10 @@ And the following mockups:
 
 **Story AP1: On the article page, any user can see the article and the author profile**
 
-On the BlogBee aticle page, a user can see the full content article, with a picture header if available.
-On the right side, a user can see the author profile with picture if available and fullname.
+On the BlogBee article page, a user can see the full content article, with a picture header if available.
+On the right side, a user can see the author profile with picture if available and full name.
 
-**Story AP2: On the article page,  any user can comment an article**
+**Story AP2: On the article page, any user can comment an article**
 
 On the BlogBee article page, any guest can comment the article or share it on social networks. We can use an external Comment system like [Disqus](http://disqus.com/).
 
@@ -83,12 +83,12 @@ And the following mockup:
 
 ### Author page
 
-**Story AUP1: On the author page, any user should access author informations**
+**Story AUP1: On the author page, any user should access author information**
 
 On the BlogBee author page, any visitor should access:
 
  - Author picture and description if available
- - Author fullname
+ - Author full name
  - Latest articles from this author
 
 And the following mockup:
@@ -97,11 +97,11 @@ And the following mockup:
 
 ### Account management page
 
-**Story AM1: On the account page, any logged user can update his informations**
+**Story AM1: On the account page, any logged user can update her information**
 
-On the BlogBee account management page, any logged user can update his informations:
+On the BlogBee account management page, any logged user can update her information:
 
- - fullname
+ - full name
  - description
  - picture
 
@@ -124,5 +124,5 @@ Final thoughts
 
 Well, time is over! Even if we have not yet started talking about BackBee, we have defined the features of our application and designed it using Bootstrap 3.
 
-Tomorrow, we will start coding to integrate our static pages into BackBee and let the magic and interactivity happens.
+Tomorrow, we will start coding to integrate our static pages into BackBee and let the magic and interactivity happen.
 
