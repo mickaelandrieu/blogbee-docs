@@ -13,19 +13,19 @@ This goal is to demonstrate that BackBee can be used to make websites with style
 
 Each day of this tutorial is meant to last between one and two hours, and will be the occasion to learn BackBee by coding a real website, from start to finish. Every day, new features will be added to the application, and we'll take advantage of this development to introduce you to new BackBee functionalities as well as good practices in web development.
 
-This tutorial is also inspired from **so famous Jobeet**, the book to learn [symfony 1](http://symfony.com/legacy) which describe how to build a business jobs application.
+This tutorial is also inspired by the **so famous Jobeet**, the book to learn [symfony 1](http://symfony.com/legacy) which describes how to build a business jobs application.
 
 What for today?
 -------------------
 
 The objective of this day is to setup the environment and install the CMS. At the end of the day we expect to see the "Hello world" from BackBee.
 
-We assume you have basic knowledges in PHP5, Apache or Nginx and MySQL.
+We assume you have basic knowledge of PHP5, Apache or Nginx and MySQL.
 
 Prerequisites
 ----------------
 
-Before installing BackBee, you need to check has everything installed and configured correctly. You should realy care about this first day and follow all the steps required to check your configuration, this may your day further down the road.
+Before installing BackBee, you need to check you have everything installed and configured correctly. You should really care about this first day and follow all the steps required to check your configuration, this may easy your days further down the road.
 
 ### Third party Software
 
@@ -41,12 +41,12 @@ In a command line interface, check if ``composer`` is correctly installed:
 
 ![composer on cmder](http://i.imgur.com/xDZi6Sc.png "composer")
 
-Also, check your PHP version which should be 5.4 or least.
+Also, check your PHP version which should be 5.4 or greater.
 
 ![PHP on cmder](http://i.imgur.com/DkgQJz2.png "PHP")
 
 
-Eventually, you need to set a domain name in your operating system.
+Eventually, you need to set up a domain name in your operating system.
 On Unix/Linux based OS, you can add it into ``/etc/hosts`` file, we will choose **blogbee.dev**:
 
     127.0.0.1   blogbee.dev
@@ -80,21 +80,21 @@ You need to create ``cache`` and ``log`` folders with the correct rights, then y
 
 ![BackBee Installer - step 2](http://i.imgur.com/YBUecHz.png "BackBee Installer - step 2")
 
-If required, check the ``repository/Config`` folder rights and then access to the **third** step.
+If required, check the ``repository/Config`` folder rights and then proceed with the **third** step.
 
-You need to set your database settings. If you use different database engine than MySQL or MariaDB, set the correct driver else you have nothing to change, only fill the fields **database name**, **username** and **password**.
+You need to set your database settings. If you use a different database engine than MySQL or MariaDB, set the correct driver else you have nothing to change, only fill the fields **database name**, **username** and **password**.
 
 ![BackBee Installer - step 3](http://i.imgur.com/ylWQZPm.png "BackBee Installer - step 3")
 
-BackBee Installer creates and populates the database, fill the last informations to complete the installation process: the **site_name** and the **domain**.
+BackBee Installer creates and populates the database, fill the last information to complete the installation process: the **site_name** and the **domain**.
 
 ![BackBee Installer - step 4](http://i.imgur.com/OMhfsrI.png "BackBee Installer - step 4")
 
-You are done: BackBee gives you the ``Apache`` or ``Nginx`` configuration you have to set to be able to use BackBee on the choosen domain.
+You are done: BackBee gives you the ``Apache`` or ``Nginx`` configuration you have to set to be able to use BackBee on the chosen domain.
 
 ![BackBee Installer - step 5](http://i.imgur.com/hvdhOjN.png "BackBee Installer - step 5")
 
-When you have set your web server, access to **[http://blogbee.dev](http://blogbee.dev)**.
+When you have set your web server, access the site by going to **[http://blogbee.dev](http://blogbee.dev)**.
 
 If everything is correctly installed, you should see the BackBee welcome message:
 
@@ -110,7 +110,7 @@ You can even connect to the "Edition mode", press  ``CTRL + ALT + B`` to show th
 Final thoughts
 ============
 
-Well, time is over! Even if we have not yet started talking about BackBee, we have setup a solid development environment and we are ready to start coding.
+Well, time is over! Even if we have not yet started talking about BackBee, we did setup a solid development environment and we are ready to start coding.
 
 Tomorrow, we will unveil what the application will do and talk about the requirements we need to implement for **BlogBee**.
 
