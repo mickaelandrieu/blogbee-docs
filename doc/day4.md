@@ -2,7 +2,7 @@
 Day 4: the Content Model
 =====================
 
-In the last episods:
+In the last episodes:
 
  - [Day1: Setup and install BackBee](day1.md)
  - [Day2: Bootstrap of BlogBee project](day2.md)
@@ -17,22 +17,22 @@ Fortunately, the Content management system is highly inspired from standards wit
 What for today?
 -------------------
 As detailed in **Day 2** in AP stories, any User should be able to create an article, today we will
-add the minimal files and configurations to allow any user to set an article.
+add the minimal files and configurations to allow any user to set up an article.
 
 
 BackBee Content model
 -----------------------------
 
-### What is PHP Content Repository?
+### What is the PHP Content Repository?
 
-The PHP Content Repository is an adaption of the Java Content Repository ([JCR](http://en.wikipedia.org/wiki/Content_repository_API_for_Java "Java Content Repository")) standard, an open API specification defined in [JSR-283](https://jcp.org/en/jsr/detail?id=283 "Java Specification Request - 283").
+The PHP Content Repository is an adaptation of the Java Content Repository ([JCR](http://en.wikipedia.org/wiki/Content_repository_API_for_Java "Java Content Repository")) standard, an open API specification defined in [JSR-283](https://jcp.org/en/jsr/detail?id=283 "Java Specification Request - 283").
 The API defines how to handle hierarchical semi-structured data in a consistent way.
 
-The typical use case is content management systems. PHPCR combines the best out of document-oriented databases (weak structured data) and of XML databases (hierarchical trees). On top of that, it adds useful features like searching, versioning, access control and locking on top of it.
+The typical use case is content management systems. PHPCR combines the best of document-oriented databases (weak structured data) and of XML databases (hierarchical trees). On top of that, it adds useful features like searching, versioning, access control and locking on top of it.
 
-**BackBee Content Management System** follow most of the *PHP Content Repository* recommandations.
+**BackBee Content Management System** follows most of the *PHP Content Repository* recommendations.
 
-If you want to learn more about PHPCR, you can read the [online documentation](http://phpcr.github.io/documentation/ "PHPCR documentation") or take a look at this [speak from one of the PHPCR contributor](http://davidbu.ch/slides/20130404-sflive_phpcr.html "PHP CR by David Buchmann") which provides a good understanding of the whole system.
+If you want to learn more about the PHPCR, you can read the [online documentation](http://phpcr.github.io/documentation/ "PHPCR documentation") or take a look at this [lecture from one of the PHPCR contributors](http://davidbu.ch/slides/20130404-sflive_phpcr.html "PHP CR by David Buchmann") which provides a good understanding of the whole system.
 
 ### BackBee Content Management System
 
@@ -47,29 +47,29 @@ BackBee Content Management System provides the following features:
 
 #### Site & Pages
 
-A website can have multiple pages, and page can have a parent page and a collection of "children" pages, ordered by "level" in the tree.
+A website can have multiple pages, and a page can have a parent page and a collection of "children" pages, ordered by "level" in the tree.
 
-A page can have a parent (if not, the page is considered as "root page"):
+A page can have a parent (if not, the page is considered as a "root page"):
 
 ![page tree](http://i.imgur.com/VWdneRE.png "page tree")
 
 #### Layout
 
 We have seen on **Day 3** the layouts, each page has a layout and all the contents are linked to the layout.
-The reality is a little bit complex, because a page has a ContentSet (this is a special Content type: for now let's say this is an orderer collection of Content) which contains all the contents of the page.
+The reality is a little bit complex, because a page has a ContentSet (this is a special Content type: for now let's say this is an ordered collection of Content) which contains all the contents of the page.
 
 When we need to render a web page, the ``Renderer``:
 
- - Check is the Page ContentSet is not ``null``
- - Get all the zones of the Page layout (1 column, 2 columns like the layouts defined on *Day 3*)
- - Loop on the contents of the ContentSet and **put the content** on the correct colum (or "zone")
+ - Checks if the Page ContentSet is not ``null``
+ - Gets all the zones of the Page layout (1 column, 2 columns like the layouts defined on *Day 3*)
+ - Loops on the contents of the ContentSet and **puts the content** on the correct column (or "zone")
 
 To conclude, ``Layout`` is used by the ``Renderer`` to put the correct content on the zones defined in the layout.
 
 #### Content Element
 
-A content element is a very simple yaml file, which have *properties* and *elements*.
-For instance, this is the actual representation an **text** element:
+A content element is a very simple yaml file, which has *properties* and *elements*.
+For instance, this is the actual representation a **text** element:
 
 ```yml
 # BackBuilder\ClassContent\Element\text.yml
@@ -81,7 +81,7 @@ text:
     value: !!scalar
 ```
 
-A content element is not selectable in BackBee out of box, in order to use it
+A content element is not selectable in BackBee out of the box, in order to use it
 you need to embed it into a Content. Notice a content element can have parameters too,
 but it's not mandatory.
 
@@ -104,8 +104,8 @@ Contents of your application are stored inside ``repository\ClassContent`` folde
 
 ##### How to build a Content ?
 
-For instance, this is the configuration for *Paragraph* content we want to allow user to use
-in article.
+For instance, this is the configuration for *Paragraph* content we want to allow users to use
+in an article.
 
 ```yml
 # /repository/ClassContent/Article/Paragraph.yml
@@ -125,20 +125,20 @@ of this configuration are:
 * *category*: allow the content to be displayed on "Edition mode"
 * *type*: the related class, can be "scalar", "array" or the fully qualified class name (FQCN) which is an instance of ``ClassContent``?
 
-Finally, this is the final render of this Content inside BackBee after you will have drag & dropped the paragraph
+Finally, this is the final rendering of this Content inside BackBee after you drag & dropped the paragraph
 inside the "Article" block.
 
 ![the Paragraph Content](http://i.imgur.com/sZ9ZnJi.png "the Paragraph Content")
 
 ##### ContentSet
 
-A ContentSet is a content which accept an ordered collection of contents.
+A ContentSet is a content which accepts an ordered collection of contents.
 
 
 Article implementation
 ----------------------------
 
-All the contents created by the developper are located in the ``/repository/ClassContent/`` repository.
+All the contents created by the developer are located in the ``/repository/ClassContent/`` repository.
 Today, we will focus on the *article* creation.
 
 Reminder, an article consists of:
@@ -148,7 +148,7 @@ Reminder, an article consists of:
  - An abstract
  - A body which is a rich content
 
-The ``article`` content configuration will be setted to multiple YAML files to allow re-use.
+The ``article`` content configuration will be set to multiple YAML files to allow reuse.
 
 ### Yaml files
 
@@ -221,7 +221,7 @@ article:
             type: BackBuilder\ClassContent\Media\image
 ```
 
-After adding this configuration file, re-connect to Edition Mode and create a new page with "Article" layout.
+After adding this configuration file, reconnect to Edition Mode and create a new page with "Article" layout.
 
 Access to this new page and look at the result:
 
@@ -232,6 +232,5 @@ Final thoughts
 
 Well, time is over!
 
-We now have a better understanding on how BackBee manage his contents, tomorrow we will explore more the Editor mode
+We now have a better understanding on how BackBee manage its contents, tomorrow we will explore more the Editor mode
 and we will go further on the "Content" model of BackBee.
-
