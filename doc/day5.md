@@ -2,7 +2,7 @@
 Day 5: the BackBee Edition mode
 ===========================
 
-In the last episods:
+In the last episodes:
 
  - [Day1: Setup and install BackBee](day1.md)
  - [Day2: Bootstrap of BlogBee project](day2.md)
@@ -12,28 +12,28 @@ In the last episods:
 Introduction
 ---------------
 
-The Content model is complex to understand without practical examples. As a user manipulate contents through the toolbar, we will do the link between our files and configurations and the toolbar features activated and displayed. This way, you will understand how to provide features to your final users.
+The Content model is complex to understand without practical examples. As a user manipulates contents through the toolbar, we will do the link between our files and configurations and the toolbar features activated and displayed. This way, you will understand how to provide features to your final users.
 
 
 What for today?
 -------------------
 In **Day 4**, we added an Article content and this is great but you still can't edit it.
-Today, we will also discover the differents "modes" of the toolbar and then we will complete our configuration files in order to allow our final users to create and edit articles.
+Today, we will also discover the different "modes" of the toolbar and then we will complete our configuration files in order to allow our final users to create and edit articles.
 
 BackBee Edition mode
 ==================
 
 ## the "big picture"
 
-The first time you connect into **Edition mode** you may be a bit lost due to multiples buttons and tabs.
+The first time you connect into **Edition mode** you may be a bit lost due to multiple buttons and tabs.
 
 ![BackBee toolbar](http://i.imgur.com/MTAPVc7.png "BackBee toolbar")
 
 
  1. the **Language Selector**: the Edition mode is available in english and in french.
- 2. the **StateManager**: to save, apply or cancel the modifications done on your content.
- 3. the **Mode Selector**:  this allow to switch between modes of BackBee editor.
- 4. *only in Edit mode*:  the **Panel Selector** to choose which kind of content edit.
+ 2. the **StateManager**: to save, apply or cancel the modifications done to your content.
+ 3. the **Mode Selector**:  this allows to switch between modes of the BackBee editor.
+ 4. *only in Edit mode*:  the **Panel Selector** to choose which kind of content to edit.
 
 
 ## the **Templates** mode
@@ -42,11 +42,11 @@ We already have used the **Template editor** before to create our layouts.
 
 ![Template editor](http://i.imgur.com/7VSBncD.png "Template editor")
 
-All the templates stored in ``repository/Layouts`` folder appears in the left side.
+All the templates stored in ``repository/Layouts`` folder appear in the left side.
 You can select and edit them with the available options, all templates are based on a **grid system** like in the front-end framework [Bootstrap](http://getbootstrap.com/css/#grid).
 
 Each time you create a template, a file ``<templateName>.twig`` is created in ``repository/Layouts`` folder.
-In previous versions of BackBee CMS, any user can drag the column size but this feature is now deprecated and be removed in **1.0 release**.
+In previous versions of BackBee CMS, any user can drag the column size but this feature is now deprecated and will be removed in the **1.0 release**.
 
 ## the **Edit** mode
 
@@ -62,17 +62,17 @@ the **Page** panel is obviously used to manage pages, from hierarchy to SEO prop
 
 ![http://i.imgur.com/GcgOA5k.png](http://i.imgur.com/GcgOA5k.png "Page panel")
 
-You can change the status of a page: if offline, non logged users can't access it, and schedule to publish and archive it.
+You can change the status of a page: if set to offline, non logged users can't access it. You can also schedule it to publish and archive it.
 
-Also, if you click on "Sitemap" link you access to the page tree we have introduced on **Day 3**, and easily re-organize page order and hierarchy.
+Also, if you click on the "Sitemap" link you access the page tree we have introduced on **Day 3**, and can easily reorganize page order and hierarchy.
 
 For example, let's create a page.
-Click on "New page" and fill the form with "article" as title and "Article" as Template. *You can either by create it by right-clicking on Home page or using Tools drop-down menu.*
-Then, click on Save button and take a look to the "Sitemap widget".
+Click on "New page" and fill the form with "article" as title and "Article" as Template. *You can either do this by creating it right-clicking on Home page or using the Tools drop-down menu.*
+Then, click on Save button and take a look at the "Sitemap widget".
 
 ![Sitemap widget](http://i.imgur.com/TU72yQl.png "Sitemap widget")
 
-The article page is offline, his red hatched logo, an online page (like the *root* Home page) is white. You can manage your pages through the widget and/or in the *Page* panel.
+The article page is offline, has a red hatched logo, an online page (like the *root* Home page) is white. You can manage your pages through the widget and/or in the *Page* panel.
 
 
 ### the *Boxes* panel
@@ -89,13 +89,13 @@ For example, click on the "Upload picture":
 ![image block selected](http://i.imgur.com/biiNiLk.png "image block selected")
 
 In the *breadcrumb*, you can see ``ContentSet > article > Media\image``.
-If you take a look on your yaml file, you can see that an image has an image element, which is a ``BackBuilder\ClassContent\Media\image`` class: good.
+If you take a look at your yaml file, you can see that an image has an image element, which is a ``BackBuilder\ClassContent\Media\image`` class: good.
 
-You can see also that Boxes are organized by **category**. If you click on *Article* category you will find all contents we have created on **Day 4** with the category "Article": this is how BackBee order and allow contents to be used.
+You can see also that Boxes are organized by **category**. If you click on *Article* category you will find all the contents we created on **Day 4** with the category "Article": this is how BackBee orders and allows content to be used.
 
-Each content must have a category, but sometimes you may need to deactivate a content because final user should'nt manipulate it.
+Each content must have a category, but sometimes you may need to deactivate a content because the final user shouldn't manipulate it.
 
-You can use the "!" operator to filter contents, for instance we don't want final user add another article bodies to an article.
+You can use the "!" operator to filter contents, for instance we don't want the final user to add other article bodies to an article.
 
 ```yml
 # /repository/ClassContent/Article/Body.yml
@@ -113,8 +113,8 @@ This is the more used panel of BackBee, able to manipulable all editable blocks.
 
 ![content panel mode](http://i.imgur.com/gJmD8wL.png "content panel mode")
 
-You may wonder how to do to make a block editable. As usualy, this is a problem solved
-by configuration in yaml.
+You may wonder how to make a block editable. Usually, this is a problem solved
+by configuration via yaml.
 
 Let's assume you want to let users edit the title of an article:
 
@@ -140,14 +140,14 @@ Refresh your browser page and click on your article title, which is now editable
 ![title now editable](http://i.imgur.com/XhNPR5v.png "title now editable")
 
 ## the **Bundles** mode
-In BackBee, *Bundles* are mostly considered are "plugins". All the availables bundles are displayed in this view.
-Notice that ``BackBee Standard edition`` come with a DemoBundle, to help you build your own bundles.
+In BackBee, *Bundles* are mostly considered "plugins". All the available bundles are displayed in this view.
+Notice that ``BackBee Standard edition`` comes with a DemoBundle, to help you build your own bundles.
 
 ![BackBee bundle mode](http://i.imgur.com/kLg6UP6.png "BackBee bundle mode")
 
-For example, ``DemoBundle`` provide a ``ClassContent`` called *block demo* that you will find inside *Demo* category in ``Boxes`` panel.
+For example, ``DemoBundle`` provides a ``ClassContent`` called *block demo* that you will find inside *Demo* category in ``Boxes`` panel.
 
-This is the first blue block you discover when you install the CMS is the *block demo* from Demo bundle.
+This is the first blue block you discover when you install the CMS. It is the *block demo* from Demo bundle.
 
 We will learn how to do bundles in the next days.
 
@@ -198,7 +198,7 @@ aloha:
 
 All the configuration of Aloha can be exposed in ``rteconfig.yml``, you only need [Aloha documentation](http://aloha-editor.org/guides/) to customise it.
 
-Notice the configuration set in ``pluginsconf`` is merged into Aloha global configuration, so you can override a global behavior by set your own.
+Notice the configuration set in ``pluginsconf`` is merged into Aloha global configuration, so you can override a global behavior by setting your own.
 
 
 ## Complete our Article model
@@ -242,9 +242,9 @@ article:
 
 The complete configuration of contents we have defined in **Day 4** are stored in the [application github repository](https://github.com/backbee/blogbee/tree/day4).
 
-## Bonus: manage our urls
+## Bonus: manage your urls
 
-BackBee has a lot of features and today we will speak about urls. This is a common need to have a total control on the urls generated by pages,  mainly for search engine optimization (SEO).
+BackBee has a lot of features and today we will speak about urls. This is a very common need, that is, to have a total control on the urls generated by pages, mainly for search engine optimization (SEO).
 
 Urls are managed by Content and by configuration.
 
@@ -257,7 +257,7 @@ scheme:
 ```
 
 Now make an update on your article (update the status of your article for instance),
-then "Save" your modifications and BackBee will ask you  to reload the browser page.
+then "Save" your modifications and BackBee will ask you to reload the browser page.
 
 And the url will be updated: *notice you need to update each existing article in order to apply the new url pattern*.
 
@@ -267,7 +267,7 @@ Final thoughts
 
 Well, time is over!
 
-We have seen a lot of features today, and we are now enough skilled to create every simple websites you want.
-We are able to integrate layouts and templates, to configure contents related to business and make them dynamics and editables by users.
+We have seen a lot of features today, and we are now skilled enough to create any simple website you want.
+We are able to integrate layouts and templates, to configure contents related to business and make them dynamic and editable by users.
 
 The next days, we will go further on the BackBee discovery from bundle creation to events listeners and give you keys to finish your own BlogBee application!
