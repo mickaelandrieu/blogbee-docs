@@ -66,7 +66,7 @@ Installation
 
 Open a command line interface and get BackBee:
 
-    $ composer create-project "backbee/backbee-standard" /path/to/your/folder "0.11.*@dev"
+    $ composer create-project "backbee/backbee-standard" /path/to/your/folder "1.0" -n
 
 Then on the ``public`` directory, launch the builtin server of PHP:
 
@@ -78,21 +78,27 @@ And you should see the first installation step of BackBee (access [http://localh
 
 You need to create ``cache`` and ``log`` folders with the correct rights, then you can refresh the page and access to the **second step** of the installer.
 
-![BackBee Installer - step 2](http://i.imgur.com/YBUecHz.png "BackBee Installer - step 2")
+![BackBee Installer - step 2](http://i.imgur.com/pvaDJIH.png "BackBee Installer - step 2")
 
 If required, check the ``repository/Config`` folder rights and then proceed with the **third** step.
 
 You need to set your database settings. If you use a different database engine than MySQL or MariaDB, set the correct driver else you have nothing to change, only fill the fields **database name**, **username** and **password**.
 
-![BackBee Installer - step 3](http://i.imgur.com/ylWQZPm.png "BackBee Installer - step 3")
+![BackBee Installer - step 3](http://i.imgur.com/f6ejuwI.png "BackBee Installer - step 3")
+
+You also need to define your super admin user, fill the credentials then save and continue to the **fourth** step.
+
+![BackBee Installer - step 3 bis](http://i.imgur.com/ZENfnSS.png "BackBee Installer - step 3 bis")
 
 BackBee Installer creates and populates the database, fill the last information to complete the installation process: the **site_name** and the **domain**.
 
-![BackBee Installer - step 4](http://i.imgur.com/OMhfsrI.png "BackBee Installer - step 4")
+![BackBee Installer - step 4](http://i.imgur.com/kk4xNPw.png "BackBee Installer - step 4")
 
 You are done: BackBee gives you the ``Apache`` or ``Nginx`` configuration you have to set to be able to use BackBee on the chosen domain.
 
-![BackBee Installer - step 5](http://i.imgur.com/hvdhOjN.png "BackBee Installer - step 5")
+![BackBee Installer - step 5](http://i.imgur.com/T13tVjT.png "BackBee Installer - step 5")
+
+![BackBee Installer - step 5 bis](http://i.imgur.com/ePKuLX5.png "BackBee Installer - step 5 bis")
 
 When you have set your web server, access the site by going to **[http://blogbee.dev](http://blogbee.dev)**.
 
@@ -100,12 +106,16 @@ If everything is correctly installed, you should see the BackBee welcome message
 
 ![BackBee welcome message](http://i.imgur.com/rWY8IQk.png "BackBee welcome message")
 
+
+> *If you can't see BackBee welcome message, check both ``cache`` and ``log`` folders have the correct rights.*
+
+
 You can even connect to the "Edition mode", press  ``CTRL + ALT + B`` to show the login dialog. Note that we created a super admin user for you with login (=admin) and password (=admin).
 
-![BackBee Installed - Edition mode](http://i.imgur.com/3LBfnBL.png "BackBee Installed - Edition mode")
+![BackBee Installed - Edition mode](http://i.imgur.com/6NUBWCG.png "BackBee Installed - Edition mode")
 
 
-*If you can't access BackBee welcome message, check both ``cache`` and ``log`` folders have the correct rights.*
+
 
 Final thoughts
 ============
