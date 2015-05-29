@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://www.backbee.com/day3/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+	<title>Day 3: Creation of layouts - BlogBee, the BackBee tutorial</title>
+
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">BlogBee, the BackBee tutorial</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Summary</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tutorial <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../day1/">Day 1: Installation of BackBee</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../day2/">Day 2: What is BlogBee</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Day 3: Creation of layouts</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../day4/">Day 4: Introduction to Content model</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../day5/">Day 5: the BackBee Edition mode</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="../day2/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../day4/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/backbee/blogbee-docs">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#day-3-explanation-and-layouts-creation">Day 3: Explanation and layouts creation</a></li>
+        
+            <li><a href="#introduction">Introduction</a></li>
+        
+            <li><a href="#what-for-today">What for today?</a></li>
+        
+            <li><a href="#the-big-picture">The "big picture"</a></li>
+        
+            <li><a href="#layout-creation-process">Layout creation process</a></li>
+        
+    
+        <li class="main "><a href="#final-thoughts">Final thoughts</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="day-3-explanation-and-layouts-creation">Day 3: Explanation and layouts creation</h1>
+<p>In the last episods:</p>
+<ul>
+<li><a href="../day1/">Day1: Setup and install BackBee</a></li>
+<li><a href="../day2/">Day2: Bootstrap of BlogBee project</a></li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>BackBee is a complete and flexible content management system. If architecture is a bit complex to understand, you will see that it is subsequently very easy to quickly build any type of website.</p>
+<h2 id="what-for-today">What for today?</h2>
+<p>Today we will learn how BackBee manages content. This will be a somewhat difficult day and we recommend you to reread this tutorial to understand the system. By late afternoon, you will understand how to integrate the templates that we built in the second day and how to create the layouts for our pages.</p>
+<h2 id="the-big-picture">The "big picture"</h2>
+<p>Let's start with a schema which represent the BackBee architecture of our <em>Article page</em>:</p>
+<p><img alt="the BackBee big picture" src="http://i.imgur.com/sLLJ19x.png" title="the BackBee big picture" /></p>
+<p>Each element have its object representation inside <strong>BackBee core library</strong>:</p>
+<ul>
+<li><strong>Site</strong> (<code>BackBuilder\Site\Site</code>) is your application.</li>
+<li><strong>Page</strong> (<code>BackBuilder\NestedNode\Page</code>) represents each page of your application, for example for blogbee we have three pages: home page, article page and author page.</li>
+<li><strong>Layout</strong> (<code>BackBuilder\Site\Layout</code>) represents the layout of a page.</li>
+<li><strong>ContentSet</strong> (<code>BackBuilder\ClassContent\ContentSet</code>) represents the blocs/columns of your layouts, there are blocks that can be editable by the user.</li>
+</ul>
+<p>We will create the complete structure of our pages and go further on <strong>Day 4</strong>, for now let's create our layouts.</p>
+<h2 id="layout-creation-process">Layout creation process</h2>
+<p>It's time to work!</p>
+<p>In our website we will have static and dynamic content as you can see in this detailed mockup:</p>
+<p><img alt="Layout decomposition" src="http://i.imgur.com/2KiVJxd.png" title="Layout decomposition" /></p>
+<p>We need to create two layouts:</p>
+<ul>
+<li>A "one-column" layout for author related pages</li>
+<li>A "two-columns" layout for home and article pages</li>
+</ul>
+<h3 id="creation-of-layouts">Creation of layouts</h3>
+<p>Connect to BackBee (Remember, <code>CTRL + ALT + B</code> then fill your credentials) and select <strong>Templates</strong> tab on top of the editor.</p>
+<p>BackBee embeds a lot of common layouts and the layouts we need are already provided by the CMS.</p>
+<ol>
+<li>Click on "Other templates", and select "Default template" which is only composed of one single column.</li>
+</ol>
+<p><img alt="Author layout" src="http://i.imgur.com/LUQTsiv.png" title="Author layout" /></p>
+<ol>
+<li>Edit the Template name and set it to <em>OneColumn</em> and do the same for a "two columns" layout that we will name "TwoLayouts".</li>
+</ol>
+<p>You will see two files generated inside <code>repository/Layouts</code> :  <code>OneColumn.twig</code> and <code>TwoColumns.twig</code>, where we will insert our previous Bootstrap 3 templates from <strong>Day 2</strong>, and the calls to BackBee.</p>
+<p>We have used <a href="http://twig.sensiolabs.org/">Twig</a> as templating engine, in order to extend via <a href="http://twig.sensiolabs.org/doc/tags/extends.html" title="Twig extends tag">template inheritance</a>, but BackBee also supports old simple <em>phtml</em> templating engine.</p>
+<p>Then, add a <code>Main.twig</code> file in the <code>repository\Layout</code> folder which will act as a parent of each layout.</p>
+<h3 id="integration-of-our-layouts">Integration of our layouts</h3>
+<p><code>Main.twig</code> is the parent template with all static parts of the website and blocks we will extend in <code>Article.twig</code> and <code>Author.twig</code> templates</p>
+<pre><code class="twig">&lt;!DOCTYPE html&gt;
+
+&lt;html&gt;
+    &lt;head lang=&quot;en&quot;&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;&lt;/meta&gt;
+        &lt;title&gt;BlogBee - Home&lt;/title&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;{{ this.getUri(&quot;css/main.css&quot;) }}&quot;&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+        &lt;!-- Helper to get the toolbar --&gt;
+        {{ this.bb5toolbar()|raw }}
+        &lt;!-- #bb5-site-wrapper is very important as required by BackBee Editor --&gt;
+        &lt;div class=&quot;container-fluid&quot; id=&quot;bb5-site-wrapper&quot;&gt;
+            &lt;div class=&quot;header-section&quot;&gt;
+
+                &lt;header class=&quot;row header page-header&quot;&gt;
+                    &lt;!-- include the header static file --&gt;
+                    {{ this.partial(&quot;partials/header.twig&quot;)|raw }}
+                &lt;/header&gt;
+
+                &lt;nav class=&quot;navbar navbar-default&quot;&gt;
+                    &lt;div class=&quot;container-fluid&quot;&gt;
+                        &lt;div class=&quot;collapse navbar-collapse row&quot;&gt;
+
+                            &lt;section class=&quot;hidden-xs category-list-section col-sm-9&quot;&gt;
+                                &lt;!-- include the static navigation file --&gt;
+                                {{ this.partial(&quot;partials/navigation.twig&quot;)|raw }}
+                            &lt;/section&gt;
+
+                            &lt;section class=&quot;col-xs-12 col-sm-3 search-section&quot;&gt;
+                                &lt;!-- include the search static file --&gt;
+                                {{ this.partial(&quot;partials/search.twig&quot;)|raw }}
+                            &lt;/section&gt;
+
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/nav&gt;
+            &lt;/div&gt;
+
+            &lt;div class=&quot;row&quot;&gt;
+                {% block content %}{% endblock %}
+            &lt;/div&gt;
+
+            &lt;footer class=&quot;footer page-footer&quot;&gt;
+                &lt;!-- include the footer static file --&gt;
+                {{ this.partial(&quot;partials/footer.twig&quot;)|raw }}
+            &lt;/footer&gt;
+
+        &lt;/div&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;https://code.jquery.com/jquery-2.1.3.min.js&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>This is the "parent" layout with common blocks to both layouts.</p>
+<p>Now, take a look to the <code>OneColumn.twig</code> layout:</p>
+<pre><code class="twig">{% extends &quot;Main.twig&quot; %}
+
+{% block content %}
+&lt;div class=&quot;col-xs-12&quot;&gt;
+    {{ this.container().first()|raw }}
+&lt;/div&gt;
+{% endblock %}
+</code></pre>
+
+<p>This need little explanation here. Like in PHP inheritance, we have extended the main layout and only "overrode" the behavior of <em>content</em> block. This means that in the case that this layout is called by BackBee, the HTML rendered by the CMS will be the content of the <em>main</em> layout <strong>plus</strong> the replacement of the content of <em>twig content block</em> by <em>OneColumn's</em> content.</p>
+<p>This is pretty easy, let's take a look at the <code>TwoColumns.twig</code> layout:</p>
+<pre><code class="twig">{% extends &quot;Main.twig&quot; %}
+
+{% block content %}
+&lt;div class=&quot;col-sm-8 col-xs-12&quot;&gt;
+    {{ this.container().first()|raw }}
+&lt;/div&gt;
+&lt;div class=&quot;col-sm-4 col-md-3 col-md-offset-1 hidden-xs&quot;&gt;
+    &lt;aside&gt;
+        {{ this.container().next()|raw }}
+    &lt;/aside&gt;
+&lt;/div&gt;
+{% endblock %}
+</code></pre>
+
+<h5 id="helpers">Helpers</h5>
+<p>You can access to BackBee Renderer through the <strong>this</strong>. We said before that a ContentSet is a container.
+In the first layout, we have only one "container" so when we call <code>`this.container().first()|raw</code> we ask BackBee to render the content of the first (and the only) ContentSet.</p>
+<p>In the second template, where we have two ContentSet, you can call <code>this.container().next()</code> because <em>container helper</em> implements <a href="http://php.net/manual/en/class.arrayiterator.php" title="Array Iterator">ArrayIterator interface</a>.</p>
+<p>BackBee provides a lot of helpers which are available in layouts, they are located in <code>BackBuilder/Renderer/Helper</code> folder, you can also create your own.</p>
+<h5 id="partials">Partials</h5>
+<p>Partials are statics files which are commonly used in pages of the website.</p>
+<pre><code class="twig"># /repository/Templates/scripts/partials/header.twig
+&lt;div class=&quot;col-xs-8&quot;&gt;
+    &lt;h1 class=&quot;site-title h1&quot;&gt;&lt;a class=&quot;link-unstyled&quot; href=&quot;index.html&quot;&gt;BlogBee &lt;small&gt;community blog&lt;/small&gt;&lt;/a&gt;&lt;/h1&gt;
+&lt;/div&gt;
+&lt;section class=&quot;login-section col-xs-4 text-righ&quot;&gt;
+    &lt;button class=&quot;btn btn-success pull-right&quot; href=&quot;/login&quot; data-toggle=&quot;modal&quot; data-target=&quot;#authentication-modal&quot;&gt;login / create account&lt;/button&gt;
+&lt;/section&gt;
+</code></pre>
+
+<pre><code class="twig"># /repository/Templates/scripts/partials/navigation.twig
+&lt;ul class=&quot;nav navbar-nav list-unstyled list-inline row&quot;&gt;
+    &lt;li class=&quot;col-sm-2 text-nowrap&quot;&gt;&lt;a href=&quot;category.html#1&quot;&gt;category 1&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;col-sm-2 text-nowrap&quot;&gt;&lt;a href=&quot;category.html#2&quot;&gt;category 2&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;col-sm-2 text-nowrap&quot;&gt;&lt;a href=&quot;category.html#3&quot;&gt;category 3&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;col-sm-2 text-nowrap&quot;&gt;&lt;a href=&quot;category.html#4&quot;&gt;category 4&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;col-sm-2 text-nowrap&quot;&gt;&lt;a href=&quot;category.html#5&quot;&gt;category 5&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;col-sm-2 text-nowrap&quot;&gt;&lt;a href=&quot;category.html#6&quot;&gt;category 6&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<pre><code class="twig"># /repository/Templates/scripts/partials/search.twig
+&lt;form action=&quot;/search&quot; method=&quot;post&quot; class=&quot;form-inline&quot;&gt;
+    &lt;div class=&quot;form-group&quot;&gt;
+        &lt;div class=&quot;input-group&quot;&gt;
+            &lt;span class=&quot;input-group-addon btn-search-form btn-reset&quot;&gt;&lt;button type=&quot;reset&quot; class=&quot;btn btn-warning glyphicon glyphicon-remove-sign&quot;&gt;&lt;/button&gt;&lt;/span&gt;
+            &lt;input type=&quot;text&quot; class=&quot;input form-control&quot; placeholder=&quot;search&quot;&gt;
+            &lt;span class=&quot;input-group-addon btn-search-form btn-submit&quot;&gt;&lt;button type=&quot;submit&quot; class=&quot;btn btn-primary glyphicon glyphicon-search&quot;&gt;&lt;/button&gt;&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+</code></pre>
+
+<pre><code class="twig"># /repository/Templates/scripts/partials/footer.twig
+&lt;ul class=&quot;row list-unstyled&quot;&gt;
+    &lt;li class=&quot;col-xs-3 text-left&quot;&gt;
+        &lt;a href=&quot;http://www.backbee.com/&quot;&gt;Build with BackBee&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;col-xs-3 text-center&quot;&gt;
+        &lt;a href=&quot;https://backbee.github.com/blogbee&quot;&gt;BlogBee tuorial&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;col-xs-3 text-center&quot;&gt;
+        &lt;a href=&quot;http://github.com/backbee/blogbee&quot;&gt;github repository&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class=&quot;col-xs-3 text-right&quot;&gt;
+        &lt;a href=&quot;http://www.lp-digital.fr/en/&quot;&gt;lp digital system &amp;copy;&lt;/a&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<p>And we have added all we need to integrate the layouts.</p>
+<h1 id="final-thoughts">Final thoughts</h1>
+<p>Well, time is over!</p>
+<p>We have integrated our layouts into BackBee and tomorrow we will go further and talk about our “content blocks”.</p></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+                <p>Copyright &copy; 2014-2015, <a href="http://www.backbee.com">BackBee project</a>.</p>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script>var base_url = '..';</script>
+        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+        <script src="../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://www.backbee.com/day2/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+	<title>Day 2: What is BlogBee - BlogBee, the BackBee tutorial</title>
+
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">BlogBee, the BackBee tutorial</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Summary</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tutorial <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../day1/">Day 1: Installation of BackBee</a>
+</li>
+
+                        
+                            
+<li class="active">
+    <a href="./">Day 2: What is BlogBee</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../day3/">Day 3: Creation of layouts</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../day4/">Day 4: Introduction to Content model</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../day5/">Day 5: the BackBee Edition mode</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="../day1/">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../day3/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/backbee/blogbee-docs">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#day-2-bootstrap-of-blogbee-project">Day 2: Bootstrap of BlogBee project</a></li>
+        
+            <li><a href="#introduction">Introduction</a></li>
+        
+            <li><a href="#what-for-today">What for today?</a></li>
+        
+            <li><a href="#what-is-blogbee">What is BlogBee?</a></li>
+        
+            <li><a href="#user-stories">User stories</a></li>
+        
+            <li><a href="#what-should-it-look-like">What should it look like?</a></li>
+        
+    
+        <li class="main "><a href="#final-thoughts">Final thoughts</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="day-2-bootstrap-of-blogbee-project">Day 2: Bootstrap of BlogBee project</h1>
+<p>In the last episode:</p>
+<ul>
+<li><a href="../day1/">Day 1: Setup and install BackBee</a></li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>Today is about the project specifications.</p>
+<h2 id="what-for-today">What for today?</h2>
+<p>We will list the user stories to complete in order to realize the application.
+We will also make the functional mockups and make nice templates with Bootstrap 3 frontend framework.</p>
+<blockquote>
+<p>Notice: this tutorial is <strong>not</strong> about learn Bootstrap3 css framework, but BackBee: if you don't know the framework, you can access <a href="http://getbootstrap.com/getting-started/">Bootstrap documentation here</a>.</p>
+</blockquote>
+<h2 id="what-is-blogbee">What is BlogBee?</h2>
+<p>BlogBee is an Open-Source blog-publishing platform software that only does one thing, but does it well. It is easy to use, customize, extend, and embed into your website. It supports user and content management out of the box, and of course uses the latest Web technologies to enhance user experience.</p>
+<p>BlogBee is inspired by the famous <a href="https://medium.com/">Medium website</a>.</p>
+<h2 id="user-stories">User stories</h2>
+<p>We will have 3 types of users:</p>
+<ul>
+<li>Admins: they can access to the admin panel and manage users and articles</li>
+<li>Users: logged users can write an article, and manage their own account</li>
+<li>Guests: they can comment on articles and/or share them through social networks</li>
+</ul>
+<h3 id="homepage">Homepage</h3>
+<p><strong>Story HP1: On the homepage, any user can see the latest and top articles</strong></p>
+<p>On the BlogBee homepage a user should see a list of 3 recent active articles.
+She also can see the 3 first top articles based on the number of readings.</p>
+<p><strong>Story HP2: On the homepage, any user can see the top contributors list</strong></p>
+<p>On the BlogBee homepage, a user should see a list of actual top contributors based on the number of articles they have published on the platform.</p>
+<p><strong>Story HP3: On the homepage, any user can connect to her account and/or register</strong></p>
+<p>On the BlogBee homepage, a guest can connect or register to the platform. If connected she can access her account management page.</p>
+<p><strong>Story HP4: On the homepage, any user can filter the lists of article by category</strong></p>
+<p>On the BlogBee homepage, a user can filter the articles displayed by category ("keyword").</p>
+<p>And the following mockups:</p>
+<p><em>Home page</em></p>
+<p><img alt="Homepage mockup" src="http://i.imgur.com/kQwdziY.png" title="Homepage mockup" /></p>
+<p><em>Login feature on Home page</em></p>
+<p><img alt="Login access on Homepage mockup" src="http://i.imgur.com/2VyKuK2.png" title="Login access on Homepage mockup" /></p>
+<h3 id="article-page">Article page</h3>
+<p><strong>Story AP1: On the article page, any user can see the article and the author profile</strong></p>
+<p>On the BlogBee article page, a user can see the full content article, with a picture header if available.
+On the right side, a user can see the author profile with picture if available and full name.</p>
+<p><strong>Story AP2: On the article page, any user can comment an article</strong></p>
+<p>On the BlogBee article page, any guest can comment the article or share it on social networks. We can use an external Comment system like <a href="http://disqus.com/">Disqus</a>.</p>
+<p>And the following mockup:</p>
+<p><img alt="Article page mockup" src="http://i.imgur.com/Yq6EVlJ.png" title="Article page mockup" /></p>
+<h3 id="author-page">Author page</h3>
+<p><strong>Story AUP1: On the author page, any user should access author information</strong></p>
+<p>On the BlogBee author page, any visitor should access:</p>
+<ul>
+<li>Author picture and description if available</li>
+<li>Author full name</li>
+<li>Latest articles from this author</li>
+</ul>
+<p>And the following mockup:</p>
+<p><img alt="Author page mockup" src="http://i.imgur.com/9KfFc8z.png" title="Author page mockup" /></p>
+<h3 id="account-management-page">Account management page</h3>
+<p><strong>Story AM1: On the account page, any logged user can update her information</strong></p>
+<p>On the BlogBee account management page, any logged user can update her information:</p>
+<ul>
+<li>full name</li>
+<li>description</li>
+<li>picture</li>
+</ul>
+<p>And the following (last) mockup:</p>
+<p><img alt="User account page mockup" src="http://i.imgur.com/wFi98Hu.png" title="User account page mockup" /></p>
+<h2 id="what-should-it-look-like">What should it look like?</h2>
+<p>Learning Bootstrap 3 front integration is out of scope of this tutorial, but to ease the following of this tutorial we will provide you a complete design available <a href="http://backbee.github.io/blogbee/integration/">here</a>.</p>
+<p><img alt="Bootstrap static website" src="http://i.imgur.com/pTAkfDt.png" title="Bootstrap static website" /></p>
+<p>Archive can be downloaded here in the <a href="https://github.com/backbee/blogbee/archive/day2.zip">github repository</a>.</p>
+<h1 id="final-thoughts">Final thoughts</h1>
+<p>Well, time is over! Even if we have not yet started talking about BackBee, we have defined the features of our application and designed it using Bootstrap 3.</p>
+<p>Tomorrow, we will start coding to integrate our static pages into BackBee and let the magic and interactivity happen.</p></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+                <p>Copyright &copy; 2014-2015, <a href="http://www.backbee.com">BackBee project</a>.</p>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script>var base_url = '..';</script>
+        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+        <script src="../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

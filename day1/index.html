@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://www.backbee.com/day1/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+	<title>Day 1: Installation of BackBee - BlogBee, the BackBee tutorial</title>
+
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">BlogBee, the BackBee tutorial</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Summary</a>
+                    </li>
+                
+                
+                
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tutorial <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li class="active">
+    <a href="./">Day 1: Installation of BackBee</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../day2/">Day 2: What is BlogBee</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../day3/">Day 3: Creation of layouts</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../day4/">Day 4: Introduction to Content model</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../day5/">Day 5: the BackBee Edition mode</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
+                </ul>
+            
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                        <i class="fa fa-search"></i> Search
+                    </a>
+                </li>
+                
+                    <li >
+                        <a rel="next" href="..">
+                            <i class="fa fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../day2/">
+                            Next <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a href="https://github.com/backbee/blogbee-docs">
+                            
+                                <i class="fa fa-github"></i>
+                            
+                            GitHub
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#day-1-project-start">Day 1 : Project start</a></li>
+        
+            <li><a href="#introduction">Introduction</a></li>
+        
+            <li><a href="#what-for-today">What for today?</a></li>
+        
+            <li><a href="#prerequisites">Prerequisites</a></li>
+        
+            <li><a href="#installation">Installation</a></li>
+        
+    
+        <li class="main "><a href="#final-thoughts">Final thoughts</a></li>
+        
+    
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="day-1-project-start">Day 1 : Project start</h1>
+<h2 id="introduction">Introduction</h2>
+<p><a href="http://www.backbee.com">BackBee</a> is an open source Content Management System (CMS) project built on top of Symfony Components and Doctrine 2.</p>
+<p>This tutorial describes the creation of real web application, we will say more on day 2 about the application and features we expect to be implemented.
+This kind of site is very popular and very easy to build with BackBee CMS, for instance you should take a look at <a href="http://www.medium.com">Medium</a>.</p>
+<p>This goal is to demonstrate that BackBee can be used to make websites with style and little efforts.</p>
+<p>Each day of this tutorial is meant to last between one and two hours, and will be the occasion to learn BackBee by coding a real website, from start to finish. Every day, new features will be added to the application, and we'll take advantage of this development to introduce you to new BackBee functionalities as well as good practices in web development.</p>
+<p>This tutorial is also inspired by the <strong>so famous Jobeet</strong>, the book to learn <a href="http://symfony.com/legacy">symfony 1</a> which describes how to build a business jobs application.</p>
+<h2 id="what-for-today">What for today?</h2>
+<p>The objective of this day is to setup the environment and install the CMS. At the end of the day we expect to see the "Hello world" from BackBee.</p>
+<p>We assume you have basic knowledge of PHP5, Apache or Nginx and MySQL.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before installing BackBee, you need to check you have everything installed and configured correctly. You should really care about this first day and follow all the steps required to check your configuration, this may easy your days further down the road.</p>
+<h3 id="third-party-software">Third party Software</h3>
+<p>First of all, you need to check that your computer has a friendly working environment for web development. At a minimum, you need a web server (Apache, for instance), a database engine (MySQL, PostgreSQL, SQLite, or any PDO-compatible database engine), and <strong>PHP 5.4</strong> or later.</p>
+<p>At least, you need to install <a href="http://git-scm.com/">git</a>.</p>
+<p>Also, you will need to install <a href="https://getcomposer.org/">Composer</a> the dependency manager for PHP.</p>
+<p>Follow this link to install it if your are on <a href="https://getcomposer.org/doc/00-intro.md#globally">Linux/Unix based OS</a> (like ubuntu or Mac OS X), Composer is also available on <a href="https://getcomposer.org/doc/00-intro.md#installation-windows">Windows system</a>.</p>
+<p>In a command line interface, check if <code>composer</code> is correctly installed:</p>
+<p><img alt="composer on cmder" src="http://i.imgur.com/xDZi6Sc.png" title="composer" /></p>
+<p>Also, check your PHP version which should be 5.4 or greater.</p>
+<p><img alt="PHP on cmder" src="http://i.imgur.com/DkgQJz2.png" title="PHP" /></p>
+<p>Eventually, you need to set up a domain name in your operating system.
+On Unix/Linux based OS, you can add it into <code>/etc/hosts</code> file, we will choose <strong>blogbee.dev</strong>:</p>
+<pre><code>127.0.0.1   blogbee.dev
+</code></pre>
+<h4 id="php-extensions-and-configuration">PHP extensions and configuration</h4>
+<p>You need to activate <code>mbstring</code>, <code>pdo_mysql</code> and <code>pdo_sqlite</code> extensions.
+Then you also need to set a correct date.timezone in your <code>php.ini</code> configuration file:</p>
+<pre><code>[Date]
+date.timezone=Europe/Paris
+</code></pre>
+<p>Ok ! We can now launch the installation process.</p>
+<h2 id="installation">Installation</h2>
+<p>Open a command line interface and get BackBee:</p>
+<pre><code>$ composer create-project "backbee/backbee-standard" /path/to/your/folder "1.0" -n
+</code></pre>
+<p>Then on the <code>public</code> directory, launch the builtin server of PHP:</p>
+<pre><code>$ cd /path/to/your/folder/public &amp;&amp; php -S blogbee.dev:8000
+</code></pre>
+<p>And you should see the first installation step of BackBee (access <a href="http://localhost:8000/install.php">http://localhost:8000/install.php</a>) in a web browser:</p>
+<p><img alt="BackBee Installer - first step" src="http://i.imgur.com/saok4nc.png" title="BackBee Installer - first step" /></p>
+<p>You need to create <code>cache</code> and <code>log</code> folders with the correct rights, then you can refresh the page and access to the <strong>second step</strong> of the installer.</p>
+<p><img alt="BackBee Installer - step 2" src="http://i.imgur.com/pvaDJIH.png" title="BackBee Installer - step 2" /></p>
+<p>If required, check the <code>repository/Config</code> folder rights and then proceed with the <strong>third</strong> step.</p>
+<p>You need to set your database settings. If you use a different database engine than MySQL or MariaDB, set the correct driver else you have nothing to change, only fill the fields <strong>database name</strong>, <strong>username</strong> and <strong>password</strong>.</p>
+<p><img alt="BackBee Installer - step 3" src="http://i.imgur.com/f6ejuwI.png" title="BackBee Installer - step 3" /></p>
+<p>You also need to define your super admin user, fill the credentials then save and continue to the <strong>fourth</strong> step.</p>
+<p><img alt="BackBee Installer - step 3 bis" src="http://i.imgur.com/ZENfnSS.png" title="BackBee Installer - step 3 bis" /></p>
+<p>BackBee Installer creates and populates the database, fill the last information to complete the installation process: the <strong>site_name</strong> and the <strong>domain</strong>.</p>
+<p><img alt="BackBee Installer - step 4" src="http://i.imgur.com/kk4xNPw.png" title="BackBee Installer - step 4" /></p>
+<p>You are done: BackBee gives you the <code>Apache</code> or <code>Nginx</code> configuration you have to set to be able to use BackBee on the chosen domain.</p>
+<p><img alt="BackBee Installer - step 5" src="http://i.imgur.com/T13tVjT.png" title="BackBee Installer - step 5" /></p>
+<p><img alt="BackBee Installer - step 5 bis" src="http://i.imgur.com/ePKuLX5.png" title="BackBee Installer - step 5 bis" /></p>
+<p>When you have set your web server, access the site by going to <strong><a href="http://blogbee.dev">http://blogbee.dev</a></strong>.</p>
+<p>If everything is correctly installed, you should see the BackBee welcome message:</p>
+<p><img alt="BackBee welcome message" src="http://i.imgur.com/rWY8IQk.png" title="BackBee welcome message" /></p>
+<blockquote>
+<p><em>If you can't see BackBee welcome message, check both <code>cache</code> and <code>log</code> folders have the correct rights.</em></p>
+</blockquote>
+<p>You can even connect to the "Edition mode", press  <code>CTRL + ALT + B</code> to show the login dialog. Note that we created a super admin user for you with login (=admin) and password (=admin).</p>
+<p><img alt="BackBee Installed - Edition mode" src="http://i.imgur.com/6NUBWCG.png" title="BackBee Installed - Edition mode" /></p>
+<h1 id="final-thoughts">Final thoughts</h1>
+<p>Well, time is over! Even if we have not yet started talking about BackBee, we did setup a solid development environment and we are ready to start coding.</p>
+<p>Tomorrow, we will unveil what the application will do and talk about the requirements we need to implement for <strong>BlogBee</strong>.</p></div>
+            
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            
+                <p>Copyright &copy; 2014-2015, <a href="http://www.backbee.com">BackBee project</a>.</p>
+            
+            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script>var base_url = '..';</script>
+        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+        <script src="../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            From here you can search these documents. Enter
+                            your search terms below.
+                        </p>
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
+                            </div>
+                        </form>
+                        <div id="mkdocs-search-results"></div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
