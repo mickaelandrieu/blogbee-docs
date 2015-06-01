@@ -1,7 +1,7 @@
-Day 3: Explanation and layouts creation
-=======================================
+Day 3: the Content Model
+=====================
 
-In the last episods:
+In the last episodes:
 
  - [Day1: Setup and install BackBee](day1.md)
  - [Day2: Bootstrap of BlogBee project](day2.md)
@@ -9,227 +9,226 @@ In the last episods:
 Introduction
 ---------------
 
-BackBee is a complete and flexible content management system. If architecture is a bit complex to understand, you will see that it is subsequently very easy to quickly build any type of website.
-
+Content model of BackBee is one of the most difficult part to understand.
+Fortunately, the Content management system is highly inspired from standards with the aim to be fully compatible with *PHP Content Repository* API.
 
 What for today?
 -------------------
+As detailed in **Day 2** in AP stories, any User should be able to create an article, today we will
+add the minimal files and configurations to allow any user to set up an article.
 
-Today we will learn how BackBee manages content. This will be a somewhat difficult day and we recommend you to reread this tutorial to understand the system. By late afternoon, you will understand how to integrate the templates that we built in the second day and how to create the layouts for our pages.
 
-The "big picture"
---------------------
+BackBee Content model
+-----------------------------
 
-Let's start with a schema which represent the BackBee architecture of our *Article page*:
+### What is the PHP Content Repository?
 
-![the BackBee big picture](http://i.imgur.com/sLLJ19x.png "the BackBee big picture")
+The PHP Content Repository is an adaptation of the Java Content Repository ([JCR](http://en.wikipedia.org/wiki/Content_repository_API_for_Java "Java Content Repository")) standard, an open API specification defined in [JSR-283](https://jcp.org/en/jsr/detail?id=283 "Java Specification Request - 283").
+The API defines how to handle hierarchical semi-structured data in a consistent way.
 
-Each element have its object representation inside **BackBee core library**:
+The typical use case is content management systems. PHPCR combines the best of document-oriented databases (weak structured data) and of XML databases (hierarchical trees). On top of that, it adds useful features like searching, versioning, access control and locking on top of it.
 
- - **Site** (``BackBuilder\Site\Site``) is your application.
- - **Page** (``BackBuilder\NestedNode\Page``) represents each page of your application, for example for blogbee we have three pages: home page, article page and author page.
- - **Layout** (``BackBuilder\Site\Layout``) represents the layout of a page.
- - **ContentSet** (``BackBuilder\ClassContent\ContentSet``) represents the blocs/columns of your layouts, there are blocks that can be editable by the user.
+**BackBee Content Management System** follows most of the *PHP Content Repository* recommendations.
 
-We will create the complete structure of our pages and go further on **Day 4**, for now let's create our layouts.
+If you want to learn more about the PHPCR, you can read the [online documentation](http://phpcr.github.io/documentation/ "PHPCR documentation") or take a look at this [lecture from one of the PHPCR contributors](http://davidbu.ch/slides/20130404-sflive_phpcr.html "PHP CR by David Buchmann") which provides a good understanding of the whole system.
 
-Layout creation process
+### BackBee Content Management System
+
+BackBee Content Management System provides the following features:
+
+ - Access hierarchical tree
+ - Access by UUID
+ - Node search
+ - Versioning
+ - XML import & export
+ - Secured Access
+
+#### Site & Pages
+
+A website can have multiple pages, and a page can have a parent page and a collection of "children" pages, ordered by "level" in the tree.
+
+A page can have a parent (if not, the page is considered as a "root page"):
+
+![page tree](http://i.imgur.com/VWdneRE.png "page tree")
+
+#### Layout
+
+We have seen on **Day 3** the layouts, each page has a layout and all the contents are linked to the layout.
+The reality is a little bit complex, because a page has a ContentSet (this is a special Content type: for now let's say this is an ordered collection of Content) which contains all the contents of the page.
+
+When we need to render a web page, the ``Renderer``:
+
+ - Checks if the Page ContentSet is not ``null``
+ - Gets all the zones of the Page layout (1 column, 2 columns like the layouts defined on *Day 3*)
+ - Loops on the contents of the ContentSet and **puts the content** on the correct column (or "zone")
+
+To conclude, ``Layout`` is used by the ``Renderer`` to put the correct content on the zones defined in the layout.
+
+#### Content Element
+
+A content element is a very simple yaml file, which has *properties* and *elements*.
+For instance, this is the actual representation a **text** element:
+
+```yml
+# BackBuilder\ClassContent\Element\text.yml
+text:
+  properties:
+    name: Text
+    description: A simple text input
+  elements:
+    value: !!scalar
+```
+
+A content element is not selectable in BackBee out of the box, in order to use it
+you need to embed it into a Content. Notice a content element can have parameters too,
+but it's not mandatory.
+
+List of native content elements in BackBee:
+ * **text**
+   * **date**
+   * **select**
+ * **file**
+   * **attachment**
+   * **image**
+ * **keyword**
+ * **link**
+
+#### Content
+
+The contents are also stored in an hierarchical tree, we can describe them
+as a list of content elements (``BackBee\ClassContent\Element``).
+
+Contents of your application are stored inside ``repository\ClassContent`` folder.
+
+##### How to build a Content ?
+
+For instance, this is the configuration for *Paragraph* content we want to allow users to use
+in an article.
+
+```yml
+# /repository/ClassContent/Article/Paragraph.yml
+paragraph:
+    properties:
+        name: Paragraph
+        description: Paragraph
+        category: [Article]
+    elements:
+        body:
+            type: BackBuilder\ClassContent\Element\text
+```
+
+A **paragraph** is an extend of the **text** element we have seen before, the interesting parts
+of this configuration are:
+
+* *category*: allow the content to be displayed on "Edition mode"
+* *type*: the related class, can be "scalar", "array" or the fully qualified class name (FQCN) which is an instance of ``ClassContent``?
+
+Finally, this is the final rendering of this Content inside BackBee after you drag & dropped the paragraph
+inside the "Article" block.
+
+![the Paragraph Content](http://i.imgur.com/sZ9ZnJi.png "the Paragraph Content")
+
+##### ContentSet
+
+A ContentSet is a content which accepts an ordered collection of contents.
+
+
+Article implementation
 ----------------------------
 
-It's time to work!
+All the contents created by the developer are located in the ``/repository/ClassContent/`` repository.
+Today, we will focus on the *article* creation.
 
-In our website we will have static and dynamic content as you can see in this detailed mockup:
+Reminder, an article consists of:
 
-![Layout decomposition](http://i.imgur.com/2KiVJxd.png "Layout decomposition")
+ - A title
+ - A picture
+ - An abstract
+ - A body which is a rich content
 
-We need to create two layouts:
+The ``article`` content configuration will be set to multiple YAML files to allow reuse.
 
- - A "one-column" layout for author related pages
- - A "two-columns" layout for home and article pages
+### Yaml files
 
-### Creation of layouts
-
-Connect to BackBee (Remember, ``CTRL + ALT + B`` then fill your credentials) and select **Templates** tab on top of the editor.
-
-BackBee embeds a lot of common layouts and the layouts we need are already provided by the CMS.
-
- 1. Click on "Other templates", and select "Default template" which is only composed of one single column.
-
- ![Author layout](http://i.imgur.com/LUQTsiv.png "Author layout")
-
- 2. Edit the Template name and set it to *OneColumn* and do the same for a "two columns" layout that we will name "TwoLayouts".
-
-You will see two files generated inside ``repository/Layouts`` :  ``OneColumn.twig`` and ``TwoColumns.twig``, where we will insert our previous Bootstrap 3 templates from **Day 2**, and the calls to BackBee.
-
-We have used [Twig](http://twig.sensiolabs.org/) as templating engine, in order to extend via [template inheritance](http://twig.sensiolabs.org/doc/tags/extends.html "Twig extends tag"), but BackBee also supports old simple *phtml* templating engine.
-
-Then, add a ``Main.twig`` file in the ``repository\Layout`` folder which will act as a parent of each layout.
-
-### Integration of our layouts
-
-``Main.twig`` is the parent template with all static parts of the website and blocks we will extend in ``Article.twig`` and ``Author.twig`` templates
-
-```twig
-<!DOCTYPE html>
-
-<html>
-    <head lang="en">
-        <meta charset="utf-8"></meta>
-        <title>BlogBee - Home</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="{{ this.getUri("css/main.css") }}">
-    </head>
-
-    <body>
-        <!-- Helper to get the toolbar -->
-        {{ this.bb5toolbar()|raw }}
-        <!-- #bb5-site-wrapper is very important as required by BackBee Editor -->
-        <div class="container-fluid" id="bb5-site-wrapper">
-            <div class="header-section">
-
-                <header class="row header page-header">
-                    <!-- include the header static file -->
-                    {{ this.partial("partials/header.twig")|raw }}
-                </header>
-
-                <nav class="navbar navbar-default">
-                    <div class="container-fluid">
-                        <div class="collapse navbar-collapse row">
-
-                            <section class="hidden-xs category-list-section col-sm-9">
-	                            <!-- include the static navigation file -->
-                                {{ this.partial("partials/navigation.twig")|raw }}
-                            </section>
-
-                            <section class="col-xs-12 col-sm-3 search-section">
-                                <!-- include the search static file -->
-                                {{ this.partial("partials/search.twig")|raw }}
-                            </section>
-
-                        </div>
-                    </div>
-                </nav>
-            </div>
-
-            <div class="row">
-                {% block content %}{% endblock %}
-            </div>
-
-            <footer class="footer page-footer">
-                <!-- include the footer static file -->
-                {{ this.partial("partials/footer.twig")|raw }}
-            </footer>
-
-        </div>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    </body>
-</html>
+```
+repository/
+    ClassContent/
+        Article.yml
+        Article/
+            Body.yml
+            Paragraph.yml
+            Picture.yml
+            ColumnDivider.yml
 ```
 
-This is the "parent" layout with common blocks to both layouts.
-
-Now, take a look to the ``OneColumn.twig`` layout:
-
-```twig
-{% extends "Main.twig" %}
-
-{% block content %}
-<div class="col-xs-12">
-    {{ this.container().first()|raw }}
-</div>
-{% endblock %}
-```
-This need little explanation here. Like in PHP inheritance, we have extended the main layout and only "overrode" the behavior of *content* block. This means that in the case that this layout is called by BackBee, the HTML rendered by the CMS will be the content of the *main* layout **plus** the replacement of the content of *twig content block* by *OneColumn's* content.
-
-This is pretty easy, let's take a look at the ``TwoColumns.twig`` layout:
-
-```twig
-{% extends "Main.twig" %}
-
-{% block content %}
-<div class="col-sm-8 col-xs-12">
-    {{ this.container().first()|raw }}
-</div>
-<div class="col-sm-4 col-md-3 col-md-offset-1 hidden-xs">
-    <aside>
-        {{ this.container().next()|raw }}
-    </aside>
-</div>
-{% endblock %}
+```yml
+# /repository/ClassContent/Article/Paragraph.yml
+paragraph:
+    properties:
+        name: Paragraph
+        description: Paragraph
+        category: [Article]
+    elements:
+        body:
+            type: BackBee\ClassContent\Element\text
 ```
 
-##### Helpers
-
-You can access to BackBee Renderer through the **this**. We said before that a ContentSet is a container.
-In the first layout, we have only one "container" so when we call ```this.container().first()|raw`` we ask BackBee to render the content of the first (and the only) ContentSet.
-
-In the second template, where we have two ContentSet, you can call ```this.container().next()``` because *container helper* implements [ArrayIterator interface](http://php.net/manual/en/class.arrayiterator.php "Array Iterator").
-
-BackBee provides a lot of helpers which are available in layouts, they are located in ``BackBuilder/Renderer/Helper`` folder, you can also create your own.
-
-##### Partials
-
-Partials are statics files which are commonly used in pages of the website.
-
-```twig
-# /repository/Templates/scripts/partials/header.twig
-<div class="col-xs-8">
-    <h1 class="site-title h1"><a class="link-unstyled" href="index.html">BlogBee <small>community blog</small></a></h1>
-</div>
-<section class="login-section col-xs-4 text-righ">
-    <button class="btn btn-success pull-right" href="/login" data-toggle="modal" data-target="#authentication-modal">login / create account</button>
-</section>
+```yml
+# /repository/ClassContent/Article/Picture.yml
+picture:
+    properties:
+        name: Article picture
+        description: A media image
+        category: [Article]
+    elements:
+        title:
+            type: BackBee\ClassContent\Element\Text
+        image:
+            type: BackBee\ClassContent\Element\Image
 ```
 
-```twig
-# /repository/Templates/scripts/partials/navigation.twig
-<ul class="nav navbar-nav list-unstyled list-inline row">
-    <li class="col-sm-2 text-nowrap"><a href="category.html#1">category 1</a></li>
-    <li class="col-sm-2 text-nowrap"><a href="category.html#2">category 2</a></li>
-    <li class="col-sm-2 text-nowrap"><a href="category.html#3">category 3</a></li>
-    <li class="col-sm-2 text-nowrap"><a href="category.html#4">category 4</a></li>
-    <li class="col-sm-2 text-nowrap"><a href="category.html#5">category 5</a></li>
-    <li class="col-sm-2 text-nowrap"><a href="category.html#6">category 6</a></li>
-</ul>
+```yml
+# /repository/ClassContent/Article/ColumnDivider.yml
+column_divider:
+    properties:
+        name: "Column Divider"
+        description: ""
+        category: [Article]
+    elements:
+        left:
+            type: \BackBee\ClassContent\Container\OneColumn
+        right:
+            type: \BackBee\ClassContent\Container\OneColumn
 ```
 
-```twig
-# /repository/Templates/scripts/partials/search.twig
-<form action="/search" method="post" class="form-inline">
-    <div class="form-group">
-        <div class="input-group">
-            <span class="input-group-addon btn-search-form btn-reset"><button type="reset" class="btn btn-warning glyphicon glyphicon-remove-sign"></button></span>
-            <input type="text" class="input form-control" placeholder="search">
-            <span class="input-group-addon btn-search-form btn-submit"><button type="submit" class="btn btn-primary glyphicon glyphicon-search"></button></span>
-        </div>
-    </div>
-</form>
+```yml
+# /repository/ClassContent/Article.yml
+article:
+    properties:
+        name: Article
+        description: "An article contains title, abstract, main image and a customizable body"
+        category: [article]
+    elements:
+        title:
+            type: BackBee\ClassContent\Element\Text
+        abstract:
+            type: BackBee\ClassContent\Text\Paragraph
+        body:
+            type: BackBee\ClassContent\Article\Body
+        image:
+            type: BackBee\ClassContent\Media\Image
 ```
 
-```twig
-# /repository/Templates/scripts/partials/footer.twig
-<ul class="row list-unstyled">
-    <li class="col-xs-3 text-left">
-        <a href="http://www.backbee.com/">Build with BackBee</a>
-    </li>
-    <li class="col-xs-3 text-center">
-        <a href="https://backbee.github.com/blogbee">BlogBee tuorial</a>
-    </li>
-    <li class="col-xs-3 text-center">
-        <a href="http://github.com/backbee/blogbee">github repository</a>
-    </li>
-    <li class="col-xs-3 text-right">
-        <a href="http://www.lp-digital.fr/en/">lp digital system &copy;</a>
-    </li>
-</ul>
-```
+After adding this configuration file, reconnect to Edition Mode and create a new page with "Article" layout.
 
-And we have added all we need to integrate the layouts.
+Access to this new page and look at the result:
+
+![article page](http://i.imgur.com/a8ppU97.png "article page")
 
 Final thoughts
 ============
 
 Well, time is over!
 
-We have integrated our layouts into BackBee and tomorrow we will go further and talk about our “content blocks”.
+We now have a better understanding on how BackBee manage its contents, tomorrow we will explore more the Editor mode
+and we will go further on the "Content" model of BackBee.

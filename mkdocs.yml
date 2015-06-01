@@ -4,12 +4,14 @@ site_description: Tutorial to create BlogBee documentation
 
 repo_url: https://github.com/backbee/blogbee-docs
 
+docs_dir: doc
+theme_dir: 'blogbee'
+
 pages:
 - ['index.md', 'Summary']
 - ['day1.md', 'Tutorial', 'Day 1: Installation of BackBee']
 - ['day2.md', 'Tutorial', 'Day 2: What is BlogBee']
-- ['day3.md', 'Tutorial', 'Day 3: Creation of layouts']
-- ['day4.md', 'Tutorial', 'Day 4: Introduction to Content model']
-- ['day5.md', 'Tutorial', 'Day 5: the BackBee Edition mode']
+- ['day3.md', 'Tutorial', 'Day 3: Introduction to Content model']
+- ['day4.md', 'Tutorial', 'Day 4: the BackBee Edition mode']
 
 copyright: Copyright &copy; 2014-2015, <a href="http://www.backbee.com">BackBee project</a>.

@@ -1,210 +1,163 @@
-
-Day 4: the Content Model
-=====================
+Day 4: the BackBee Edition mode
+===========================
 
 In the last episodes:
 
  - [Day1: Setup and install BackBee](day1.md)
  - [Day2: Bootstrap of BlogBee project](day2.md)
- - [Day3: Explanation and layouts creation](day3.md)
+ - [Day3: Introduction to Content model](day3.md)
 
 Introduction
 ---------------
 
-Content model of BackBee is one of the most difficult part to understand.
-Fortunately, the Content management system is highly inspired from standards with the aim to be fully compatible with *PHP Content Repository* API.
+The Content model is complex to understand without practical examples. As a user manipulates contents through the toolbar, we will do the link between our files and configurations and the toolbar features activated and displayed. This way, you will understand how to provide features to your final users.
+
 
 What for today?
 -------------------
-As detailed in **Day 2** in AP stories, any User should be able to create an article, today we will
-add the minimal files and configurations to allow any user to set up an article.
+In **Day 3**, we added an Article content and this is great but you still can't edit it.
+Today, we will also discover the different "modes" of the toolbar and then we will complete our configuration files in order to allow our final users to create and edit articles.
+
+BackBee Edition mode
+==================
+
+## the "big picture"
+
+The first time you connect into **Edition mode** you may be a bit lost due to multiple buttons and tabs.
+
+![BackBee toolbar](http://i.imgur.com/MTAPVc7.png "BackBee toolbar")
 
 
-BackBee Content model
------------------------------
+ 1. the **Language Selector**: the Edition mode is available in english and in french.
+ 2. the **StateManager**: to save, apply or cancel the modifications done to your content.
+ 3. the **Mode Selector**:  this allows to switch between modes of the BackBee editor.
+ 4. *only in Edit mode*:  the **Panel Selector** to choose which kind of content to edit.
 
-### What is the PHP Content Repository?
 
-The PHP Content Repository is an adaptation of the Java Content Repository ([JCR](http://en.wikipedia.org/wiki/Content_repository_API_for_Java "Java Content Repository")) standard, an open API specification defined in [JSR-283](https://jcp.org/en/jsr/detail?id=283 "Java Specification Request - 283").
-The API defines how to handle hierarchical semi-structured data in a consistent way.
+## the **Templates** mode
 
-The typical use case is content management systems. PHPCR combines the best of document-oriented databases (weak structured data) and of XML databases (hierarchical trees). On top of that, it adds useful features like searching, versioning, access control and locking on top of it.
+We already have used the **Template editor** before to create our layouts.
 
-**BackBee Content Management System** follows most of the *PHP Content Repository* recommendations.
+![Template editor](http://i.imgur.com/7VSBncD.png "Template editor")
 
-If you want to learn more about the PHPCR, you can read the [online documentation](http://phpcr.github.io/documentation/ "PHPCR documentation") or take a look at this [lecture from one of the PHPCR contributors](http://davidbu.ch/slides/20130404-sflive_phpcr.html "PHP CR by David Buchmann") which provides a good understanding of the whole system.
+All the templates stored in ``repository/Layouts`` folder appear in the left side.
+You can select and edit them with the available options, all templates are based on a **grid system** like in the front-end framework [Bootstrap](http://getbootstrap.com/css/#grid).
 
-### BackBee Content Management System
+Each time you create a template, a file ``<templateName>.twig`` is created in ``repository/Layouts`` folder.
+In previous versions of BackBee CMS, any user can drag the column size but this feature is now deprecated and will be removed in the **1.0 release**.
 
-BackBee Content Management System provides the following features:
+## the **Edit** mode
 
- - Access hierarchical tree
- - Access by UUID
- - Node search
- - Versioning
- - XML import & export
- - Secured Access
+When you login to BackBee Edition mode, you start in **Edit mode**:
 
-#### Site & Pages
+![Editor mode](http://i.imgur.com/c2B0sbs.png "Editor mode")
 
-A website can have multiple pages, and a page can have a parent page and a collection of "children" pages, ordered by "level" in the tree.
+This mode is contextual and strongly depends on what content is selected.
 
-A page can have a parent (if not, the page is considered as a "root page"):
+### the *Page* panel
 
-![page tree](http://i.imgur.com/VWdneRE.png "page tree")
+the **Page** panel is obviously used to manage pages, from hierarchy to SEO properties.
 
-#### Layout
+![http://i.imgur.com/GcgOA5k.png](http://i.imgur.com/GcgOA5k.png "Page panel")
 
-We have seen on **Day 3** the layouts, each page has a layout and all the contents are linked to the layout.
-The reality is a little bit complex, because a page has a ContentSet (this is a special Content type: for now let's say this is an ordered collection of Content) which contains all the contents of the page.
+You can change the status of a page: if set to offline, non logged users can't access it. You can also schedule it to publish and archive it.
 
-When we need to render a web page, the ``Renderer``:
+Also, if you click on the "Sitemap" link you access the page tree we have introduced on **Day 3**, and can easily reorganize page order and hierarchy.
 
- - Checks if the Page ContentSet is not ``null``
- - Gets all the zones of the Page layout (1 column, 2 columns like the layouts defined on *Day 3*)
- - Loops on the contents of the ContentSet and **puts the content** on the correct column (or "zone")
+For example, let's create a page.
+Click on "New page" and fill the form with "article" as title and "Article" as Template. *You can either do this by creating it right-clicking on Home page or using the Tools drop-down menu.*
+Then, click on Save button and take a look at the "Sitemap widget".
 
-To conclude, ``Layout`` is used by the ``Renderer`` to put the correct content on the zones defined in the layout.
+![Sitemap widget](http://i.imgur.com/TU72yQl.png "Sitemap widget")
 
-#### Content Element
+The article page is offline, has a red hatched logo, an online page (like the *root* Home page) is white. You can manage your pages through the widget and/or in the *Page* panel.
 
-A content element is a very simple yaml file, which has *properties* and *elements*.
-For instance, this is the actual representation a **text** element:
+
+### the *Boxes* panel
+
+You will probably only use this panel when you build your website.
+Double-click on "article" in the "Sitemap widget" to access the new page created. Then switch to the *Boxes* panel:
+
+![Boxes panel](http://i.imgur.com/fVqJVPP.png "Boxes panel")
+
+And you retrieve the blocks created in the ``repository\ClassContent\article.yml`` file.
+
+For example, click on the "Upload picture":
+
+![image block selected](http://i.imgur.com/biiNiLk.png "image block selected")
+
+In the *breadcrumb*, you can see ``ContentSet > article > Media\image``.
+If you take a look at your yaml file, you can see that an image has an image element, which is a ``BackBee\ClassContent\Media\image`` class: good.
+
+You can see also that Boxes are organized by **category**. If you click on *Article* category you will find all the contents we created on **Day 4** with the category "Article": this is how BackBee orders and allows content to be used.
+
+Each content must have a category, but sometimes you may need to deactivate a content because the final user shouldn't manipulate it.
+
+You can use the "!" operator to filter contents, for instance we don't want the final user to add other article bodies to an article.
 
 ```yml
-# BackBuilder\ClassContent\Element\text.yml
-text:
+# /repository/ClassContent/Article/Body.yml
+body:
+  extends: \BackBee\ClassContent\ContentSet
   properties:
-    name: Text
-    description: A simple text input
-  elements:
-    value: !!scalar
+    category: [!Article]
 ```
 
-A content element is not selectable in BackBee out of the box, in order to use it
-you need to embed it into a Content. Notice a content element can have parameters too,
-but it's not mandatory.
+And now, *body* is not part of available contents.
 
-List of native content elements in BackBee:
- * **text**
-   * **date**
-   * **select**
- * **file**
-   * **attachment**
-   * **image**
- * **keyword**
- * **link**
+### the *Content* panel
 
-#### Content
+This is the more used panel of BackBee, able to manipulable all editable blocks.
 
-The contents are also stored in an hierarchical tree, we can describe them
-as a list of content elements (``BackBuilder\ClassContent\Element``).
+![content panel mode](http://i.imgur.com/gJmD8wL.png "content panel mode")
 
-Contents of your application are stored inside ``repository\ClassContent`` folder.
+You may wonder how to make a block editable. Usually, this is a problem solved
+by configuration via yaml.
 
-##### How to build a Content ?
+Let's assume you want to let users edit the title of an article:
 
-For instance, this is the configuration for *Paragraph* content we want to allow users to use
-in an article.
+    article:
+        properties:
+            name: Article
+            description: "An article contains title, abstract, main image and a customizable body"
+            category: [article]
+        elements:
+            title:
+                type: BackBee\ClassContent\Element\Text
+            body:
+                type: BackBee\ClassContent\Article\Body
+        parameters:
+            accept: [BackBee\ClassContent\Text\Paragraph]
 
-```yml
-# /repository/ClassContent/Article/Paragraph.yml
-paragraph:
-    properties:
-        name: Paragraph
-        description: Paragraph
-        category: [Article]
-    elements:
-        body:
-            type: BackBuilder\ClassContent\Element\text
-```
+As you can see, we have added a *parameter* to the article title configuration. Each parameter has a type and a value.
 
-A **paragraph** is an extend of the **text** element we have seen before, the interesting parts
-of this configuration are:
+* **accept**:  "lite" is a configuration tree key in ``/repository/Config/rteconfig.yml, we will talk about aloha configuration later
+*  **editable**: this is explicit, we are now allowed to edit the title
 
-* *category*: allow the content to be displayed on "Edition mode"
-* *type*: the related class, can be "scalar", "array" or the fully qualified class name (FQCN) which is an instance of ``ClassContent``?
+Refresh your browser page and click on your article title, which is now editable.
 
-Finally, this is the final rendering of this Content inside BackBee after you drag & dropped the paragraph
-inside the "Article" block.
+![title now editable](http://i.imgur.com/XhNPR5v.png "title now editable")
 
-![the Paragraph Content](http://i.imgur.com/sZ9ZnJi.png "the Paragraph Content")
+## the **Bundles** mode
+In BackBee, *Bundles* are mostly considered "plugins". All the available bundles are displayed in this view.
+Notice that ``BackBee Standard edition`` comes with a DemoBundle, to help you build your own bundles.
 
-##### ContentSet
+![BackBee bundle mode](http://i.imgur.com/kLg6UP6.png "BackBee bundle mode")
 
-A ContentSet is a content which accepts an ordered collection of contents.
+For example, ``DemoBundle`` provides a ``ClassContent`` called *block demo* that you will find inside *Demo* category in ``Boxes`` panel.
 
+This is the first blue block you discover when you install the CMS. It is the *block demo* from Demo bundle.
 
-Article implementation
-----------------------------
+We will learn how to do bundles in the next days.
 
-All the contents created by the developer are located in the ``/repository/ClassContent/`` repository.
-Today, we will focus on the *article* creation.
+Article model improvements
+=======================
 
-Reminder, an article consists of:
+## Complete our Article model
 
- - A title
- - A picture
- - An abstract
- - A body which is a rich content
+This is the configuration we will use for our Article model:
 
-The ``article`` content configuration will be set to multiple YAML files to allow reuse.
-
-### Yaml files
-
-```
-repository/
-    ClassContent/
-        Article.yml
-        Article/
-            Body.yml
-            Paragraph.yml
-            Picture.yml
-            ColumnDivider.yml
-```
-
-```yml
-# /repository/ClassContent/Article/Paragraph.yml
-paragraph:
-    properties:
-        name: Paragraph
-        description: Paragraph
-        category: [Article]
-    elements:
-        body:
-            type: BackBuilder\ClassContent\Element\text
-```
-
-```yml
-# /repository/ClassContent/Article/Picture.yml
-picture:
-    properties:
-        name: Article picture
-        description: A media image
-        category: [Article]
-    elements:
-        title:
-            type: BackBuilder\ClassContent\Element\text
-        image:
-            type: BackBuilder\ClassContent\Element\image
-```
-
-```yml
-# /repository/ClassContent/Article/ColumnDivider.yml
-column_divider:
-    properties:
-        name: "Column Divider"
-        description: ""
-        category: [Article]
-    elements:
-        left:
-            type: \BackBuilder\ClassContent\container\column
-        right:
-            type: \BackBuilder\ClassContent\container\column
-```
-
-```yml
-# /repository/ClassContent/Article.yml
+```yaml
 article:
     properties:
         name: Article
@@ -213,24 +166,55 @@ article:
     elements:
         title:
             type: BackBuilder\ClassContent\Element\text
+            label: Title
+            # default value
+            default:
+                value: Your title here...
+            # set the max of content you can set
+            # an article has only one title
+            maxentry: 1
+
         abstract:
-            type: BackBuilder\ClassContent\article\paragraph
+            type: BackBee\ClassContent\Text\Paragraph
+            label: Abstract
+            default:
+                value: Your abstract here...
+            maxentry: 1
         body:
-            type: BackBuilder\ClassContent\article\body
+            type: BackBee\ClassContent\Article\Body
         image:
-            type: BackBuilder\ClassContent\Media\image
+            type: BackBee\ClassContent\Media\Image
+
 ```
 
-After adding this configuration file, reconnect to Edition Mode and create a new page with "Article" layout.
+The complete configuration of contents we have defined in **Day 3** are stored in the [application github repository](https://github.com/backbee/blogbee/tree/day3).
 
-Access to this new page and look at the result:
+## Bonus: manage your urls
 
-![article page](http://i.imgur.com/a8ppU97.png "article page")
+BackBee has a lot of features and today we will speak about urls. This is a very common need, that is, to have a total control on the urls generated by pages, mainly for search engine optimization (SEO).
+
+Urls are managed by Content and by configuration.
+
+Add a new file in ``repository/Config/`` folder and name it ```rewriting.yml```.
+
+```yaml
+scheme:
+  _content_:
+    article: $ancestor[1]/$title
+```
+
+Now make an update on your article (update the status of your article for instance),
+then "Save" your modifications and BackBee will ask you to reload the browser page.
+
+And the url will be updated: *notice you need to update each existing article in order to apply the new url pattern*.
+
 
 Final thoughts
 ============
 
 Well, time is over!
 
-We now have a better understanding on how BackBee manage its contents, tomorrow we will explore more the Editor mode
-and we will go further on the "Content" model of BackBee.
+We have seen a lot of features today, and we are now skilled enough to create any simple website you want.
+We are able to integrate layouts and templates, to configure contents related to business and make them dynamic and editable by users.
+
+The next days, we will go further on the BackBee discovery from bundle creation to events listeners and give you keys to finish your own BlogBee application!
