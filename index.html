@@ -11,10 +11,10 @@
 
 	<title>BlogBee, the BackBee tutorial</title>
 
-        <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="./css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link href="./css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="./css/highlight.css">
+        <link href="./css/base.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -25,14 +25,13 @@
         
     </head>
 
-    <body class="homepage">
+    <body>
 
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
 
         <!-- Collapsed navigation -->
         <div class="navbar-header">
-            
             <!-- Expander button -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -40,7 +39,6 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            
 
             <!-- Main title -->
             <a class="navbar-brand" href=".">BlogBee, the BackBee tutorial</a>
@@ -48,85 +46,63 @@
 
         <!-- Expanded navigation -->
         <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
             
-                <!-- Main navigation -->
-                <ul class="nav navbar-nav">
-                
-                
-                    <li class="active">
-                        <a href=".">Summary</a>
-                    </li>
-                
-                
-                
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tutorial <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="day1/">Day 1: Installation of BackBee</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="day2/">Day 2: What is BlogBee</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="day3/">Day 3: Creation of layouts</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="day4/">Day 4: Introduction to Content model</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="day5/">Day 5: the BackBee Edition mode</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                </ul>
             
+                <li class="active">
+                    <a href=".">Summary</a>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tutorial <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="day1/">Day 1: Installation of BackBee</a>
+                        </li>
+                    
+                        <li >
+                            <a href="day2/">Day 2: What is BlogBee</a>
+                        </li>
+                    
+                        <li >
+                            <a href="day3/">Day 3: Introduction to Content model</a>
+                        </li>
+                    
+                        <li >
+                            <a href="day4/">Day 4: the BackBee Edition mode</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
 
+            <!-- Search, Navigation and Repo links -->
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                        <i class="fa fa-search"></i> Search
+                <li class="disabled">
+                    <a rel="next" >
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="day1/">
+                        Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
                 
-                    <li class="disabled">
-                        <a rel="next" >
-                            <i class="fa fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="prev" href="day1/">
-                            Next <i class="fa fa-arrow-right"></i>
-                        </a>
-                    </li>
-                
-                
-                    <li>
-                        <a href="https://github.com/backbee/blogbee-docs">
-                            
-                                <i class="fa fa-github"></i>
-                            
-                            GitHub
-                        </a>
-                    </li>
+                <li>
+                    <a href="https://github.com/backbee/blogbee-docs">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
                 
             </ul>
         </div>
@@ -134,8 +110,7 @@
 </div>
 
         <div class="container">
-            
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
         <li class="main active"><a href="#summary">Summary</a></li>
@@ -143,71 +118,37 @@
     
     </ul>
 </div></div>
-                <div class="col-md-9" role="main">
+            <div class="col-md-9" role="main">
 
 <h1 id="summary">Summary</h1>
 <ul>
 <li>Day 1: <a href="day1/">BackBee standard edition installation and first contribution</a>.</li>
 <li>Day 2: <a href="day2/">Site conception and BackBee content management</a></li>
-<li>Day 3: <a href="day3/">Explanation and layouts creation</a></li>
-<li>Day 4: <a href="day4/">ContentType and template with render modes</a></li>
-<li>Day 5: <a href="day5/">BackBee Edition mode</a></li>
-<li>Day 6: Simple bundle + load existent bundles (comment bundle).</li>
-<li>Day 7: Advanced bundle part 1 Bundle conception (user contribution bundle).</li>
-<li>Day 8: Advanced bundle part 2 Creation of contributor model and extend BBUser.</li>
-<li>Day 9: Advanced bundle part 3 Event listener link user to class content article.</li>
-<li>Day 10: Advanced bundle part 4 Custom user template public/private profile + routing.</li>
-<li>Day 11: Advanced bundle part 5 Authentication manager and firewalls.</li>
-<li>Day 12: Advanced bundle part 6 User roles.</li>
-<li>Day 13: Advanced bundle part 7 Customize contributor toolbar.</li>
+<li>Day 3: <a href="day3/">ContentType and template with render modes</a></li>
+<li>Day 4: <a href="day4/">BackBee Edition mode</a></li>
+<li>Day 5: Simple bundle + load existent bundles (comment bundle).</li>
+<li>Day 6: Advanced bundle part 1 Bundle conception (user contribution bundle).</li>
+<li>Day 7: Advanced bundle part 2 Creation of contributor model and extend BBUser.</li>
+<li>Day 8: Advanced bundle part 3 Event listener link user to class content article.</li>
+<li>Day 9: Advanced bundle part 4 Custom user template public/private profile + routing.</li>
+<li>Day 10: Advanced bundle part 5 Authentication manager and firewalls.</li>
+<li>Day 11: Advanced bundle part 6 User roles.</li>
+<li>Day 12: Advanced bundle part 7 Customize contributor toolbar.</li>
 </ul></div>
-            
         </div>
 
-        <footer class="col-md-12">
-            <hr>
-            
-                <p>Copyright &copy; 2014-2015, <a href="http://www.backbee.com">BackBee project</a>.</p>
-            
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
+	<footer class="col-md-12">
+		<hr>
+		
+		<center>Copyright &copy; 2014-2015, <a href="http://www.backbee.com">BackBee project</a>.</center>
+		
+		<center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+	</footer>
+
 
         <script src="./js/jquery-1.10.2.min.js"></script>
         <script src="./js/bootstrap-3.0.3.min.js"></script>
         <script src="./js/highlight.pack.js"></script>
-        <script>var base_url = '.';</script>
-        <script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
         <script src="./js/base.js"></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            From here you can search these documents. Enter
-                            your search terms below.
-                        </p>
-                        <form role="form">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
-                            </div>
-                        </form>
-                        <div id="mkdocs-search-results"></div>
-                    </div>
-                    <div class="modal-footer">
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </body>
 </html>
-
-<!--
-MkDocs version : 0.13.1
-Build Date UTC : 2015-05-29 15:27:41.732204
--->

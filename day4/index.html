@@ -9,12 +9,12 @@
         <link rel="canonical" href="http://www.backbee.com/day4/">
         <link rel="shortcut icon" href="../img/favicon.ico">
 
-	<title>Day 4: Introduction to Content model - BlogBee, the BackBee tutorial</title>
+	<title>Day 4: the BackBee Edition mode - BlogBee, the BackBee tutorial</title>
 
-        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
         <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
         <link rel="stylesheet" href="../css/highlight.css">
+        <link href="../css/base.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -32,7 +32,6 @@
 
         <!-- Collapsed navigation -->
         <div class="navbar-header">
-            
             <!-- Expander button -->
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -40,7 +39,6 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            
 
             <!-- Main title -->
             <a class="navbar-brand" href="..">BlogBee, the BackBee tutorial</a>
@@ -48,85 +46,63 @@
 
         <!-- Expanded navigation -->
         <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
             
-                <!-- Main navigation -->
-                <ul class="nav navbar-nav">
-                
-                
-                    <li >
-                        <a href="..">Summary</a>
-                    </li>
-                
-                
-                
-                    <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tutorial <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                        
-                            
-<li >
-    <a href="../day1/">Day 1: Installation of BackBee</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../day2/">Day 2: What is BlogBee</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../day3/">Day 3: Creation of layouts</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Day 4: Introduction to Content model</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../day5/">Day 5: the BackBee Edition mode</a>
-</li>
-
-                        
-                        </ul>
-                    </li>
-                
-                
-                </ul>
             
+                <li >
+                    <a href="..">Summary</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tutorial <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../day1/">Day 1: Installation of BackBee</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../day2/">Day 2: What is BlogBee</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../day3/">Day 3: Introduction to Content model</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="./">Day 4: the BackBee Edition mode</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
 
+            <!-- Search, Navigation and Repo links -->
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
-                        <i class="fa fa-search"></i> Search
+                <li >
+                    <a rel="next" href="../day3/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li class="disabled">
+                    <a rel="prev" >
+                        Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
                 
-                    <li >
-                        <a rel="next" href="../day3/">
-                            <i class="fa fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="prev" href="../day5/">
-                            Next <i class="fa fa-arrow-right"></i>
-                        </a>
-                    </li>
-                
-                
-                    <li>
-                        <a href="https://github.com/backbee/blogbee-docs">
-                            
-                                <i class="fa fa-github"></i>
-                            
-                            GitHub
-                        </a>
-                    </li>
+                <li>
+                    <a href="https://github.com/backbee/blogbee-docs">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
                 
             </ul>
         </div>
@@ -134,19 +110,32 @@
 </div>
 
         <div class="container">
-            
-                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#day-4-the-content-model">Day 4: the Content Model</a></li>
+        <li class="main active"><a href="#day-4-the-backbee-edition-mode">Day 4: the BackBee Edition mode</a></li>
         
             <li><a href="#introduction">Introduction</a></li>
         
             <li><a href="#what-for-today">What for today?</a></li>
         
-            <li><a href="#backbee-content-model">BackBee Content model</a></li>
+    
+        <li class="main "><a href="#backbee-edition-mode">BackBee Edition mode</a></li>
         
-            <li><a href="#article-implementation">Article implementation</a></li>
+            <li><a href="#the-big-picture">the "big picture"</a></li>
+        
+            <li><a href="#the-templates-mode">the Templates mode</a></li>
+        
+            <li><a href="#the-edit-mode">the Edit mode</a></li>
+        
+            <li><a href="#the-bundles-mode">the Bundles mode</a></li>
+        
+    
+        <li class="main "><a href="#article-model-improvements">Article model improvements</a></li>
+        
+            <li><a href="#complete-our-article-model">Complete our Article model</a></li>
+        
+            <li><a href="#bonus-manage-your-urls">Bonus: manage your urls</a></li>
         
     
         <li class="main "><a href="#final-thoughts">Final thoughts</a></li>
@@ -154,166 +143,108 @@
     
     </ul>
 </div></div>
-                <div class="col-md-9" role="main">
+            <div class="col-md-9" role="main">
 
-<h1 id="day-4-the-content-model">Day 4: the Content Model</h1>
+<h1 id="day-4-the-backbee-edition-mode">Day 4: the BackBee Edition mode</h1>
 <p>In the last episodes:</p>
 <ul>
 <li><a href="../day1/">Day1: Setup and install BackBee</a></li>
 <li><a href="../day2/">Day2: Bootstrap of BlogBee project</a></li>
-<li><a href="../day3/">Day3: Explanation and layouts creation</a></li>
+<li><a href="../day3/">Day3: Introduction to Content model</a></li>
 </ul>
 <h2 id="introduction">Introduction</h2>
-<p>Content model of BackBee is one of the most difficult part to understand.
-Fortunately, the Content management system is highly inspired from standards with the aim to be fully compatible with <em>PHP Content Repository</em> API.</p>
+<p>The Content model is complex to understand without practical examples. As a user manipulates contents through the toolbar, we will do the link between our files and configurations and the toolbar features activated and displayed. This way, you will understand how to provide features to your final users.</p>
 <h2 id="what-for-today">What for today?</h2>
-<p>As detailed in <strong>Day 2</strong> in AP stories, any User should be able to create an article, today we will
-add the minimal files and configurations to allow any user to set up an article.</p>
-<h2 id="backbee-content-model">BackBee Content model</h2>
-<h3 id="what-is-the-php-content-repository">What is the PHP Content Repository?</h3>
-<p>The PHP Content Repository is an adaptation of the Java Content Repository (<a href="http://en.wikipedia.org/wiki/Content_repository_API_for_Java" title="Java Content Repository">JCR</a>) standard, an open API specification defined in <a href="https://jcp.org/en/jsr/detail?id=283" title="Java Specification Request - 283">JSR-283</a>.
-The API defines how to handle hierarchical semi-structured data in a consistent way.</p>
-<p>The typical use case is content management systems. PHPCR combines the best of document-oriented databases (weak structured data) and of XML databases (hierarchical trees). On top of that, it adds useful features like searching, versioning, access control and locking on top of it.</p>
-<p><strong>BackBee Content Management System</strong> follows most of the <em>PHP Content Repository</em> recommendations.</p>
-<p>If you want to learn more about the PHPCR, you can read the <a href="http://phpcr.github.io/documentation/" title="PHPCR documentation">online documentation</a> or take a look at this <a href="http://davidbu.ch/slides/20130404-sflive_phpcr.html" title="PHP CR by David Buchmann">lecture from one of the PHPCR contributors</a> which provides a good understanding of the whole system.</p>
-<h3 id="backbee-content-management-system">BackBee Content Management System</h3>
-<p>BackBee Content Management System provides the following features:</p>
-<ul>
-<li>Access hierarchical tree</li>
-<li>Access by UUID</li>
-<li>Node search</li>
-<li>Versioning</li>
-<li>XML import &amp; export</li>
-<li>Secured Access</li>
-</ul>
-<h4 id="site-pages">Site &amp; Pages</h4>
-<p>A website can have multiple pages, and a page can have a parent page and a collection of "children" pages, ordered by "level" in the tree.</p>
-<p>A page can have a parent (if not, the page is considered as a "root page"):</p>
-<p><img alt="page tree" src="http://i.imgur.com/VWdneRE.png" title="page tree" /></p>
-<h4 id="layout">Layout</h4>
-<p>We have seen on <strong>Day 3</strong> the layouts, each page has a layout and all the contents are linked to the layout.
-The reality is a little bit complex, because a page has a ContentSet (this is a special Content type: for now let's say this is an ordered collection of Content) which contains all the contents of the page.</p>
-<p>When we need to render a web page, the <code>Renderer</code>:</p>
-<ul>
-<li>Checks if the Page ContentSet is not <code>null</code></li>
-<li>Gets all the zones of the Page layout (1 column, 2 columns like the layouts defined on <em>Day 3</em>)</li>
-<li>Loops on the contents of the ContentSet and <strong>puts the content</strong> on the correct column (or "zone")</li>
-</ul>
-<p>To conclude, <code>Layout</code> is used by the <code>Renderer</code> to put the correct content on the zones defined in the layout.</p>
-<h4 id="content-element">Content Element</h4>
-<p>A content element is a very simple yaml file, which has <em>properties</em> and <em>elements</em>.
-For instance, this is the actual representation a <strong>text</strong> element:</p>
-<pre><code class="yml"># BackBuilder\ClassContent\Element\text.yml
-text:
+<p>In <strong>Day 3</strong>, we added an Article content and this is great but you still can't edit it.
+Today, we will also discover the different "modes" of the toolbar and then we will complete our configuration files in order to allow our final users to create and edit articles.</p>
+<h1 id="backbee-edition-mode">BackBee Edition mode</h1>
+<h2 id="the-big-picture">the "big picture"</h2>
+<p>The first time you connect into <strong>Edition mode</strong> you may be a bit lost due to multiple buttons and tabs.</p>
+<p><img alt="BackBee toolbar" src="http://i.imgur.com/MTAPVc7.png" title="BackBee toolbar" /></p>
+<ol>
+<li>the <strong>Language Selector</strong>: the Edition mode is available in english and in french.</li>
+<li>the <strong>StateManager</strong>: to save, apply or cancel the modifications done to your content.</li>
+<li>the <strong>Mode Selector</strong>:  this allows to switch between modes of the BackBee editor.</li>
+<li><em>only in Edit mode</em>:  the <strong>Panel Selector</strong> to choose which kind of content to edit.</li>
+</ol>
+<h2 id="the-templates-mode">the <strong>Templates</strong> mode</h2>
+<p>We already have used the <strong>Template editor</strong> before to create our layouts.</p>
+<p><img alt="Template editor" src="http://i.imgur.com/7VSBncD.png" title="Template editor" /></p>
+<p>All the templates stored in <code>repository/Layouts</code> folder appear in the left side.
+You can select and edit them with the available options, all templates are based on a <strong>grid system</strong> like in the front-end framework <a href="http://getbootstrap.com/css/#grid">Bootstrap</a>.</p>
+<p>Each time you create a template, a file <code>&lt;templateName&gt;.twig</code> is created in <code>repository/Layouts</code> folder.
+In previous versions of BackBee CMS, any user can drag the column size but this feature is now deprecated and will be removed in the <strong>1.0 release</strong>.</p>
+<h2 id="the-edit-mode">the <strong>Edit</strong> mode</h2>
+<p>When you login to BackBee Edition mode, you start in <strong>Edit mode</strong>:</p>
+<p><img alt="Editor mode" src="http://i.imgur.com/c2B0sbs.png" title="Editor mode" /></p>
+<p>This mode is contextual and strongly depends on what content is selected.</p>
+<h3 id="the-page-panel">the <em>Page</em> panel</h3>
+<p>the <strong>Page</strong> panel is obviously used to manage pages, from hierarchy to SEO properties.</p>
+<p><img alt="http://i.imgur.com/GcgOA5k.png" src="http://i.imgur.com/GcgOA5k.png" title="Page panel" /></p>
+<p>You can change the status of a page: if set to offline, non logged users can't access it. You can also schedule it to publish and archive it.</p>
+<p>Also, if you click on the "Sitemap" link you access the page tree we have introduced on <strong>Day 3</strong>, and can easily reorganize page order and hierarchy.</p>
+<p>For example, let's create a page.
+Click on "New page" and fill the form with "article" as title and "Article" as Template. <em>You can either do this by creating it right-clicking on Home page or using the Tools drop-down menu.</em>
+Then, click on Save button and take a look at the "Sitemap widget".</p>
+<p><img alt="Sitemap widget" src="http://i.imgur.com/TU72yQl.png" title="Sitemap widget" /></p>
+<p>The article page is offline, has a red hatched logo, an online page (like the <em>root</em> Home page) is white. You can manage your pages through the widget and/or in the <em>Page</em> panel.</p>
+<h3 id="the-boxes-panel">the <em>Boxes</em> panel</h3>
+<p>You will probably only use this panel when you build your website.
+Double-click on "article" in the "Sitemap widget" to access the new page created. Then switch to the <em>Boxes</em> panel:</p>
+<p><img alt="Boxes panel" src="http://i.imgur.com/fVqJVPP.png" title="Boxes panel" /></p>
+<p>And you retrieve the blocks created in the <code>repository\ClassContent\article.yml</code> file.</p>
+<p>For example, click on the "Upload picture":</p>
+<p><img alt="image block selected" src="http://i.imgur.com/biiNiLk.png" title="image block selected" /></p>
+<p>In the <em>breadcrumb</em>, you can see <code>ContentSet &gt; article &gt; Media\image</code>.
+If you take a look at your yaml file, you can see that an image has an image element, which is a <code>BackBee\ClassContent\Media\image</code> class: good.</p>
+<p>You can see also that Boxes are organized by <strong>category</strong>. If you click on <em>Article</em> category you will find all the contents we created on <strong>Day 4</strong> with the category "Article": this is how BackBee orders and allows content to be used.</p>
+<p>Each content must have a category, but sometimes you may need to deactivate a content because the final user shouldn't manipulate it.</p>
+<p>You can use the "!" operator to filter contents, for instance we don't want the final user to add other article bodies to an article.</p>
+<pre><code class="yml"># /repository/ClassContent/Article/Body.yml
+body:
+  extends: \BackBee\ClassContent\ContentSet
   properties:
-    name: Text
-    description: A simple text input
-  elements:
-    value: !!scalar
+    category: [!Article]
 </code></pre>
 
-<p>A content element is not selectable in BackBee out of the box, in order to use it
-you need to embed it into a Content. Notice a content element can have parameters too,
-but it's not mandatory.</p>
-<p>List of native content elements in BackBee:
- * <strong>text</strong>
-   * <strong>date</strong>
-   * <strong>select</strong>
- * <strong>file</strong>
-   * <strong>attachment</strong>
-   * <strong>image</strong>
- * <strong>keyword</strong>
- * <strong>link</strong></p>
-<h4 id="content">Content</h4>
-<p>The contents are also stored in an hierarchical tree, we can describe them
-as a list of content elements (<code>BackBuilder\ClassContent\Element</code>).</p>
-<p>Contents of your application are stored inside <code>repository\ClassContent</code> folder.</p>
-<h5 id="how-to-build-a-content">How to build a Content ?</h5>
-<p>For instance, this is the configuration for <em>Paragraph</em> content we want to allow users to use
-in an article.</p>
-<pre><code class="yml"># /repository/ClassContent/Article/Paragraph.yml
-paragraph:
+<p>And now, <em>body</em> is not part of available contents.</p>
+<h3 id="the-content-panel">the <em>Content</em> panel</h3>
+<p>This is the more used panel of BackBee, able to manipulable all editable blocks.</p>
+<p><img alt="content panel mode" src="http://i.imgur.com/gJmD8wL.png" title="content panel mode" /></p>
+<p>You may wonder how to make a block editable. Usually, this is a problem solved
+by configuration via yaml.</p>
+<p>Let's assume you want to let users edit the title of an article:</p>
+<pre><code>article:
     properties:
-        name: Paragraph
-        description: Paragraph
-        category: [Article]
-    elements:
-        body:
-            type: BackBuilder\ClassContent\Element\text
-</code></pre>
-
-<p>A <strong>paragraph</strong> is an extend of the <strong>text</strong> element we have seen before, the interesting parts
-of this configuration are:</p>
-<ul>
-<li><em>category</em>: allow the content to be displayed on "Edition mode"</li>
-<li><em>type</em>: the related class, can be "scalar", "array" or the fully qualified class name (FQCN) which is an instance of <code>ClassContent</code>?</li>
-</ul>
-<p>Finally, this is the final rendering of this Content inside BackBee after you drag &amp; dropped the paragraph
-inside the "Article" block.</p>
-<p><img alt="the Paragraph Content" src="http://i.imgur.com/sZ9ZnJi.png" title="the Paragraph Content" /></p>
-<h5 id="contentset">ContentSet</h5>
-<p>A ContentSet is a content which accepts an ordered collection of contents.</p>
-<h2 id="article-implementation">Article implementation</h2>
-<p>All the contents created by the developer are located in the <code>/repository/ClassContent/</code> repository.
-Today, we will focus on the <em>article</em> creation.</p>
-<p>Reminder, an article consists of:</p>
-<ul>
-<li>A title</li>
-<li>A picture</li>
-<li>An abstract</li>
-<li>A body which is a rich content</li>
-</ul>
-<p>The <code>article</code> content configuration will be set to multiple YAML files to allow reuse.</p>
-<h3 id="yaml-files">Yaml files</h3>
-<pre><code>repository/
-    ClassContent/
-        Article.yml
-        Article/
-            Body.yml
-            Paragraph.yml
-            Picture.yml
-            ColumnDivider.yml
-</code></pre>
-
-<pre><code class="yml"># /repository/ClassContent/Article/Paragraph.yml
-paragraph:
-    properties:
-        name: Paragraph
-        description: Paragraph
-        category: [Article]
-    elements:
-        body:
-            type: BackBuilder\ClassContent\Element\text
-</code></pre>
-
-<pre><code class="yml"># /repository/ClassContent/Article/Picture.yml
-picture:
-    properties:
-        name: Article picture
-        description: A media image
-        category: [Article]
+        name: Article
+        description: "An article contains title, abstract, main image and a customizable body"
+        category: [article]
     elements:
         title:
-            type: BackBuilder\ClassContent\Element\text
-        image:
-            type: BackBuilder\ClassContent\Element\image
+            type: BackBee\ClassContent\Element\Text
+        body:
+            type: BackBee\ClassContent\Article\Body
+    parameters:
+        accept: [BackBee\ClassContent\Text\Paragraph]
 </code></pre>
-
-<pre><code class="yml"># /repository/ClassContent/Article/ColumnDivider.yml
-column_divider:
-    properties:
-        name: &quot;Column Divider&quot;
-        description: &quot;&quot;
-        category: [Article]
-    elements:
-        left:
-            type: \BackBuilder\ClassContent\container\column
-        right:
-            type: \BackBuilder\ClassContent\container\column
-</code></pre>
-
-<pre><code class="yml"># /repository/ClassContent/Article.yml
-article:
+<p>As you can see, we have added a <em>parameter</em> to the article title configuration. Each parameter has a type and a value.</p>
+<ul>
+<li><strong>accept</strong>:  "lite" is a configuration tree key in ``/repository/Config/rteconfig.yml, we will talk about aloha configuration later</li>
+<li><strong>editable</strong>: this is explicit, we are now allowed to edit the title</li>
+</ul>
+<p>Refresh your browser page and click on your article title, which is now editable.</p>
+<p><img alt="title now editable" src="http://i.imgur.com/XhNPR5v.png" title="title now editable" /></p>
+<h2 id="the-bundles-mode">the <strong>Bundles</strong> mode</h2>
+<p>In BackBee, <em>Bundles</em> are mostly considered "plugins". All the available bundles are displayed in this view.
+Notice that <code>BackBee Standard edition</code> comes with a DemoBundle, to help you build your own bundles.</p>
+<p><img alt="BackBee bundle mode" src="http://i.imgur.com/kLg6UP6.png" title="BackBee bundle mode" /></p>
+<p>For example, <code>DemoBundle</code> provides a <code>ClassContent</code> called <em>block demo</em> that you will find inside <em>Demo</em> category in <code>Boxes</code> panel.</p>
+<p>This is the first blue block you discover when you install the CMS. It is the <em>block demo</em> from Demo bundle.</p>
+<p>We will learn how to do bundles in the next days.</p>
+<h1 id="article-model-improvements">Article model improvements</h1>
+<h2 id="complete-our-article-model">Complete our Article model</h2>
+<p>This is the configuration we will use for our Article model:</p>
+<pre><code class="yaml">article:
     properties:
         name: Article
         description: &quot;An article contains title, abstract, main image and a customizable body&quot;
@@ -321,63 +252,59 @@ article:
     elements:
         title:
             type: BackBuilder\ClassContent\Element\text
+            label: Title
+            # default value
+            default:
+                value: Your title here...
+            # set the max of content you can set
+            # an article has only one title
+            maxentry: 1
+
         abstract:
-            type: BackBuilder\ClassContent\article\paragraph
+            type: BackBee\ClassContent\Text\Paragraph
+            label: Abstract
+            default:
+                value: Your abstract here...
+            maxentry: 1
         body:
-            type: BackBuilder\ClassContent\article\body
+            type: BackBee\ClassContent\Article\Body
         image:
-            type: BackBuilder\ClassContent\Media\image
+            type: BackBee\ClassContent\Media\Image
+
 </code></pre>
 
-<p>After adding this configuration file, reconnect to Edition Mode and create a new page with "Article" layout.</p>
-<p>Access to this new page and look at the result:</p>
-<p><img alt="article page" src="http://i.imgur.com/a8ppU97.png" title="article page" /></p>
+<p>The complete configuration of contents we have defined in <strong>Day 3</strong> are stored in the <a href="https://github.com/backbee/blogbee/tree/day3">application github repository</a>.</p>
+<h2 id="bonus-manage-your-urls">Bonus: manage your urls</h2>
+<p>BackBee has a lot of features and today we will speak about urls. This is a very common need, that is, to have a total control on the urls generated by pages, mainly for search engine optimization (SEO).</p>
+<p>Urls are managed by Content and by configuration.</p>
+<p>Add a new file in <code>repository/Config/</code> folder and name it <code>rewriting.yml</code>.</p>
+<pre><code class="yaml">scheme:
+  _content_:
+    article: $ancestor[1]/$title
+</code></pre>
+
+<p>Now make an update on your article (update the status of your article for instance),
+then "Save" your modifications and BackBee will ask you to reload the browser page.</p>
+<p>And the url will be updated: <em>notice you need to update each existing article in order to apply the new url pattern</em>.</p>
 <h1 id="final-thoughts">Final thoughts</h1>
 <p>Well, time is over!</p>
-<p>We now have a better understanding on how BackBee manage its contents, tomorrow we will explore more the Editor mode
-and we will go further on the "Content" model of BackBee.</p></div>
-            
+<p>We have seen a lot of features today, and we are now skilled enough to create any simple website you want.
+We are able to integrate layouts and templates, to configure contents related to business and make them dynamic and editable by users.</p>
+<p>The next days, we will go further on the BackBee discovery from bundle creation to events listeners and give you keys to finish your own BlogBee application!</p></div>
         </div>
 
-        <footer class="col-md-12">
-            <hr>
-            
-                <p>Copyright &copy; 2014-2015, <a href="http://www.backbee.com">BackBee project</a>.</p>
-            
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
-        </footer>
+	<footer class="col-md-12">
+		<hr>
+		
+		<center>Copyright &copy; 2014-2015, <a href="http://www.backbee.com">BackBee project</a>.</center>
+		
+		<center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+	</footer>
+
 
         <script src="../js/jquery-1.10.2.min.js"></script>
         <script src="../js/bootstrap-3.0.3.min.js"></script>
         <script src="../js/highlight.pack.js"></script>
-        <script>var base_url = '..';</script>
-        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
         <script src="../js/base.js"></script>
-
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="exampleModalLabel">Search</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            From here you can search these documents. Enter
-                            your search terms below.
-                        </p>
-                        <form role="form">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query">
-                            </div>
-                        </form>
-                        <div id="mkdocs-search-results"></div>
-                    </div>
-                    <div class="modal-footer">
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </body>
 </html>
