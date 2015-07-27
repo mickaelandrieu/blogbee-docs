@@ -21,36 +21,41 @@ Today, we will also discover the different "modes" of the toolbar and then we wi
 BackBee Edition mode
 ==================
 
-## the "big picture"
+## Discover the "toolbar"
 
 The first time you connect into **Edition mode** you may be a bit lost due to multiple buttons and tabs.
 
-![BackBee toolbar](http://i.imgur.com/MTAPVc7.png "BackBee toolbar")
+![BackBee toolbar](http://i.imgur.com/Z8LtkyD.png "BackBee toolbar")
 
 
- 1. the **Language Selector**: the Edition mode is available in english and in french.
- 2. the **StateManager**: to save, apply or cancel the modifications done to your content.
- 3. the **Mode Selector**:  this allows to switch between modes of the BackBee editor.
- 4. *only in Edit mode*:  the **Panel Selector** to choose which kind of content to edit.
+ 1. the **User settings selector**: to access settings and disconnect from Edition mode.
+ 2. the **State manager selector**: to save, apply or cancel the modifications done to your contents.
+ 3. the **Mode selector**:  this allows to switch between modes of the BackBee editor.
+ 4. *only in Edit mode*:  the **Panel selector** to choose which kind of content to edit.
 
 
-## the **Templates** mode
+## the **User management** mode
 
-We already have used the **Template editor** before to create our layouts.
+Access the User management panel to access users and groups:
 
-![Template editor](http://i.imgur.com/7VSBncD.png "Template editor")
+![User management](http://i.imgur.com/ICQAsM0.png "User management")
 
-All the templates stored in ``repository/Layouts`` folder appear in the left side.
-You can select and edit them with the available options, all templates are based on a **grid system** like in the front-end framework [Bootstrap](http://getbootstrap.com/css/#grid).
+You can search for an user with the search form, manage an user, create new ones, or add them to a group.
 
-Each time you create a template, a file ``<templateName>.twig`` is created in ``repository/Layouts`` folder.
-In previous versions of BackBee CMS, any user can drag the column size but this feature is now deprecated and will be removed in the **1.0 release**.
+### What is an user group ?
+
+In BackBee the authorisations can be very precises and specifics.
+Out of box, we provide three groups with the following rights on contents:
+
+* **Administrators**: users of this group have all rights on the website and its features;
+* **Validators**: users of this group can create, edit and publish;
+* **Contributors**: users of this group can only create and edit but not publish. 
 
 ## the **Edit** mode
 
 When you login to BackBee Edition mode, you start in **Edit mode**:
 
-![Editor mode](http://i.imgur.com/c2B0sbs.png "Editor mode")
+![Editor mode](http://i.imgur.com/7d2pD1U.png "Editor mode")
 
 This mode is contextual and strongly depends on what content is selected.
 
@@ -58,7 +63,7 @@ This mode is contextual and strongly depends on what content is selected.
 
 the **Page** panel is obviously used to manage pages, from hierarchy to SEO properties.
 
-![http://i.imgur.com/GcgOA5k.png](http://i.imgur.com/GcgOA5k.png "Page panel")
+![http://i.imgur.com/GcgOA5k.png](http://i.imgur.com/Huk9XoU.png "Page panel")
 
 You can change the status of a page: if set to offline, non logged users can't access it. You can also schedule it to publish and archive it.
 
@@ -68,7 +73,7 @@ For example, let's create a page.
 Click on "New page" and fill the form with "article" as title and "Article" as Template. *You can either do this by creating it right-clicking on Home page or using the Tools drop-down menu.*
 Then, click on Save button and take a look at the "Sitemap widget".
 
-![Sitemap widget](http://i.imgur.com/TU72yQl.png "Sitemap widget")
+![Sitemap widget](http://i.imgur.com/uCNilmS.png "Sitemap widget")
 
 The article page is offline, has a red hatched logo, an online page (like the *root* Home page) is white. You can manage your pages through the widget and/or in the *Page* panel.
 
@@ -78,15 +83,15 @@ The article page is offline, has a red hatched logo, an online page (like the *r
 You will probably only use this panel when you build your website.
 Double-click on "article" in the "Sitemap widget" to access the new page created. Then switch to the *Boxes* panel:
 
-![Boxes panel](http://i.imgur.com/fVqJVPP.png "Boxes panel")
+![Boxes panel](http://i.imgur.com/Cf1OHVY.png "Boxes panel")
 
 And you retrieve the blocks created in the ``repository\ClassContent\article.yml`` file.
 
 For example, click on the "Upload picture":
 
-![image block selected](http://i.imgur.com/biiNiLk.png "image block selected")
+![image block selected](http://i.imgur.com/8ev1lNT.png "image block selected")
 
-In the *breadcrumb*, you can see ``ContentSet > article > Media\image``.
+In the *breadcrumb*, you can see ``ContentSet > article > Media image``.
 If you take a look at your yaml file, you can see that an image has an image element, which is a ``BackBee\ClassContent\Media\image`` class: good.
 
 You can see also that Boxes are organized by **category**. If you click on *Article* category you will find all the contents we created on **Day 4** with the category "Article": this is how BackBee orders and allows content to be used.
@@ -107,12 +112,7 @@ And now, *body* is not part of available contents.
 
 ### the *Content* panel
 
-This is the more used panel of BackBee, able to manipulable all editable blocks.
-
-![content panel mode](http://i.imgur.com/gJmD8wL.png "content panel mode")
-
-You may wonder how to make a block editable. Usually, this is a problem solved
-by configuration via yaml.
+This is the most used panel of BackBee, able to manipulable all editable blocks. You may wonder how to make a block editable. Usually, this is a problem solved by Yaml configuration of the block.
 
 Let's assume you want to let users edit the title of an article:
 
@@ -134,21 +134,19 @@ As you can see, we have added a *parameter* to the article title configuration. 
 * **accept**:  "lite" is a configuration tree key in ``/repository/Config/rteconfig.yml, we will talk about aloha configuration later
 *  **editable**: this is explicit, we are now allowed to edit the title
 
-Refresh your browser page and click on your article title, which is now editable.
+![content panel mode](http://i.imgur.com/VOVGrAu.png "content panel mode")
 
-![title now editable](http://i.imgur.com/XhNPR5v.png "title now editable")
-
-## the **Bundles** mode
+## the **Plugins** mode
 In BackBee, *Bundles* are mostly considered "plugins". All the available bundles are displayed in this view.
 Notice that ``BackBee Standard edition`` comes with a DemoBundle, to help you build your own bundles.
 
-![BackBee bundle mode](http://i.imgur.com/kLg6UP6.png "BackBee bundle mode")
+![BackBee bundle mode](http://i.imgur.com/carbMKp.png "BackBee bundle mode")
 
-For example, ``DemoBundle`` provides a ``ClassContent`` called *block demo* that you will find inside *Demo* category in ``Boxes`` panel.
+For example, ``DemoBundle`` provides a ``ClassContent`` called *block demo* that you will find inside *Demo* category in ``Boxes`` panel. This bundle also provide a sample on how to make bundle manageable from the toolbar.
 
-This is the first blue block you discover when you install the CMS. It is the *block demo* from Demo bundle.
+It is the *block demo* from *Demo* category in "Boxes" panel.
 
-We will learn how to do bundles in the next days.
+We will learn more about bundles in the next days.
 
 Article model improvements
 =======================
