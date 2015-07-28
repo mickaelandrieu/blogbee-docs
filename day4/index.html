@@ -132,13 +132,13 @@
     
         <li class="main "><a href="#backbee-edition-mode">BackBee Edition mode</a></li>
         
-            <li><a href="#the-big-picture">the "big picture"</a></li>
+            <li><a href="#discover-the-toolbar">Discover the "toolbar"</a></li>
         
-            <li><a href="#the-templates-mode">the Templates mode</a></li>
+            <li><a href="#the-user-management-mode">the User management mode</a></li>
         
             <li><a href="#the-edit-mode">the Edit mode</a></li>
         
-            <li><a href="#the-bundles-mode">the Bundles mode</a></li>
+            <li><a href="#the-plugins-mode">the Plugins mode</a></li>
         
     
         <li class="main "><a href="#article-model-improvements">Article model improvements</a></li>
@@ -168,44 +168,49 @@
 <p>In <strong>Day 3</strong>, we added an Article content and this is great but you still can't edit it.
 Today, we will also discover the different "modes" of the toolbar and then we will complete our configuration files in order to allow our final users to create and edit articles.</p>
 <h1 id="backbee-edition-mode">BackBee Edition mode</h1>
-<h2 id="the-big-picture">the "big picture"</h2>
+<h2 id="discover-the-toolbar">Discover the "toolbar"</h2>
 <p>The first time you connect into <strong>Edition mode</strong> you may be a bit lost due to multiple buttons and tabs.</p>
-<p><img alt="BackBee toolbar" src="http://i.imgur.com/MTAPVc7.png" title="BackBee toolbar" /></p>
+<p><img alt="BackBee toolbar" src="http://i.imgur.com/Z8LtkyD.png" title="BackBee toolbar" /></p>
 <ol>
-<li>the <strong>Language Selector</strong>: the Edition mode is available in english and in french.</li>
-<li>the <strong>StateManager</strong>: to save, apply or cancel the modifications done to your content.</li>
-<li>the <strong>Mode Selector</strong>:  this allows to switch between modes of the BackBee editor.</li>
-<li><em>only in Edit mode</em>:  the <strong>Panel Selector</strong> to choose which kind of content to edit.</li>
+<li>the <strong>User settings selector</strong>: to access settings and disconnect from Edition mode.</li>
+<li>the <strong>State manager selector</strong>: to save, apply or cancel the modifications done to your contents.</li>
+<li>the <strong>Mode selector</strong>:  this allows to switch between modes of the BackBee editor.</li>
+<li><em>only in Edit mode</em>:  the <strong>Panel selector</strong> to choose which kind of content to edit.</li>
 </ol>
-<h2 id="the-templates-mode">the <strong>Templates</strong> mode</h2>
-<p>We already have used the <strong>Template editor</strong> before to create our layouts.</p>
-<p><img alt="Template editor" src="http://i.imgur.com/7VSBncD.png" title="Template editor" /></p>
-<p>All the templates stored in <code>repository/Layouts</code> folder appear in the left side.
-You can select and edit them with the available options, all templates are based on a <strong>grid system</strong> like in the front-end framework <a href="http://getbootstrap.com/css/#grid">Bootstrap</a>.</p>
-<p>Each time you create a template, a file <code>&lt;templateName&gt;.twig</code> is created in <code>repository/Layouts</code> folder.
-In previous versions of BackBee CMS, any user can drag the column size but this feature is now deprecated and will be removed in the <strong>1.0 release</strong>.</p>
+<h2 id="the-user-management-mode">the <strong>User management</strong> mode</h2>
+<p>Access the User management panel to access users and groups:</p>
+<p><img alt="User management" src="http://i.imgur.com/ICQAsM0.png" title="User management" /></p>
+<p>You can search for an user with the search form, manage an user, create new ones, or add them to a group.</p>
+<h3 id="what-is-an-user-group">What is an user group ?</h3>
+<p>In BackBee the authorisations can be very precises and specifics.
+Out of box, we provide three groups with the following rights on contents:</p>
+<ul>
+<li><strong>Administrators</strong>: users of this group have all rights on the website and its features;</li>
+<li><strong>Validators</strong>: users of this group can create, edit and publish;</li>
+<li><strong>Contributors</strong>: users of this group can only create and edit but not publish. </li>
+</ul>
 <h2 id="the-edit-mode">the <strong>Edit</strong> mode</h2>
 <p>When you login to BackBee Edition mode, you start in <strong>Edit mode</strong>:</p>
-<p><img alt="Editor mode" src="http://i.imgur.com/c2B0sbs.png" title="Editor mode" /></p>
+<p><img alt="Editor mode" src="http://i.imgur.com/7d2pD1U.png" title="Editor mode" /></p>
 <p>This mode is contextual and strongly depends on what content is selected.</p>
 <h3 id="the-page-panel">the <em>Page</em> panel</h3>
 <p>the <strong>Page</strong> panel is obviously used to manage pages, from hierarchy to SEO properties.</p>
-<p><img alt="http://i.imgur.com/GcgOA5k.png" src="http://i.imgur.com/GcgOA5k.png" title="Page panel" /></p>
+<p><img alt="http://i.imgur.com/GcgOA5k.png" src="http://i.imgur.com/Huk9XoU.png" title="Page panel" /></p>
 <p>You can change the status of a page: if set to offline, non logged users can't access it. You can also schedule it to publish and archive it.</p>
 <p>Also, if you click on the "Sitemap" link you access the page tree we have introduced on <strong>Day 3</strong>, and can easily reorganize page order and hierarchy.</p>
 <p>For example, let's create a page.
 Click on "New page" and fill the form with "article" as title and "Article" as Template. <em>You can either do this by creating it right-clicking on Home page or using the Tools drop-down menu.</em>
 Then, click on Save button and take a look at the "Sitemap widget".</p>
-<p><img alt="Sitemap widget" src="http://i.imgur.com/TU72yQl.png" title="Sitemap widget" /></p>
+<p><img alt="Sitemap widget" src="http://i.imgur.com/uCNilmS.png" title="Sitemap widget" /></p>
 <p>The article page is offline, has a red hatched logo, an online page (like the <em>root</em> Home page) is white. You can manage your pages through the widget and/or in the <em>Page</em> panel.</p>
 <h3 id="the-boxes-panel">the <em>Boxes</em> panel</h3>
 <p>You will probably only use this panel when you build your website.
 Double-click on "article" in the "Sitemap widget" to access the new page created. Then switch to the <em>Boxes</em> panel:</p>
-<p><img alt="Boxes panel" src="http://i.imgur.com/fVqJVPP.png" title="Boxes panel" /></p>
+<p><img alt="Boxes panel" src="http://i.imgur.com/Cf1OHVY.png" title="Boxes panel" /></p>
 <p>And you retrieve the blocks created in the <code>repository\ClassContent\article.yml</code> file.</p>
 <p>For example, click on the "Upload picture":</p>
-<p><img alt="image block selected" src="http://i.imgur.com/biiNiLk.png" title="image block selected" /></p>
-<p>In the <em>breadcrumb</em>, you can see <code>ContentSet &gt; article &gt; Media\image</code>.
+<p><img alt="image block selected" src="http://i.imgur.com/8ev1lNT.png" title="image block selected" /></p>
+<p>In the <em>breadcrumb</em>, you can see <code>ContentSet &gt; article &gt; Media image</code>.
 If you take a look at your yaml file, you can see that an image has an image element, which is a <code>BackBee\ClassContent\Media\image</code> class: good.</p>
 <p>You can see also that Boxes are organized by <strong>category</strong>. If you click on <em>Article</em> category you will find all the contents we created on <strong>Day 4</strong> with the category "Article": this is how BackBee orders and allows content to be used.</p>
 <p>Each content must have a category, but sometimes you may need to deactivate a content because the final user shouldn't manipulate it.</p>
@@ -219,10 +224,7 @@ body:
 
 <p>And now, <em>body</em> is not part of available contents.</p>
 <h3 id="the-content-panel">the <em>Content</em> panel</h3>
-<p>This is the more used panel of BackBee, able to manipulable all editable blocks.</p>
-<p><img alt="content panel mode" src="http://i.imgur.com/gJmD8wL.png" title="content panel mode" /></p>
-<p>You may wonder how to make a block editable. Usually, this is a problem solved
-by configuration via yaml.</p>
+<p>This is the most used panel of BackBee, able to manipulable all editable blocks. You may wonder how to make a block editable. Usually, this is a problem solved by Yaml configuration of the block.</p>
 <p>Let's assume you want to let users edit the title of an article:</p>
 <pre><code>article:
     properties:
@@ -242,15 +244,14 @@ by configuration via yaml.</p>
 <li><strong>accept</strong>:  "lite" is a configuration tree key in ``/repository/Config/rteconfig.yml, we will talk about aloha configuration later</li>
 <li><strong>editable</strong>: this is explicit, we are now allowed to edit the title</li>
 </ul>
-<p>Refresh your browser page and click on your article title, which is now editable.</p>
-<p><img alt="title now editable" src="http://i.imgur.com/XhNPR5v.png" title="title now editable" /></p>
-<h2 id="the-bundles-mode">the <strong>Bundles</strong> mode</h2>
+<p><img alt="content panel mode" src="http://i.imgur.com/VOVGrAu.png" title="content panel mode" /></p>
+<h2 id="the-plugins-mode">the <strong>Plugins</strong> mode</h2>
 <p>In BackBee, <em>Bundles</em> are mostly considered "plugins". All the available bundles are displayed in this view.
 Notice that <code>BackBee Standard edition</code> comes with a DemoBundle, to help you build your own bundles.</p>
-<p><img alt="BackBee bundle mode" src="http://i.imgur.com/kLg6UP6.png" title="BackBee bundle mode" /></p>
-<p>For example, <code>DemoBundle</code> provides a <code>ClassContent</code> called <em>block demo</em> that you will find inside <em>Demo</em> category in <code>Boxes</code> panel.</p>
-<p>This is the first blue block you discover when you install the CMS. It is the <em>block demo</em> from Demo bundle.</p>
-<p>We will learn how to do bundles in the next days.</p>
+<p><img alt="BackBee bundle mode" src="http://i.imgur.com/carbMKp.png" title="BackBee bundle mode" /></p>
+<p>For example, <code>DemoBundle</code> provides a <code>ClassContent</code> called <em>block demo</em> that you will find inside <em>Demo</em> category in <code>Boxes</code> panel. This bundle also provide a sample on how to make bundle manageable from the toolbar.</p>
+<p>It is the <em>block demo</em> from <em>Demo</em> category in "Boxes" panel.</p>
+<p>We will learn more about bundles in the next days.</p>
 <h1 id="article-model-improvements">Article model improvements</h1>
 <h2 id="complete-our-article-model">Complete our Article model</h2>
 <p>This is the configuration we will use for our Article model:</p>
