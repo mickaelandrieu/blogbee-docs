@@ -78,6 +78,8 @@ $ ./backbee cache:clear
 
 ## Archive layout creation
 
+### Configuration file
+
 You need a YAML configuration file in a new folder ``repository\Layouts\Definitions`` and a template.
 
 The archive layout will be composed by one main column and an aside column, both can accept all availables blocks.
@@ -114,6 +116,28 @@ For each named columns, we have some properties availables:
 * `maxentry`: limit the number of class contents in this column, *infinity* by default;
 * `defaultClassContent`: if used, by default this ClassContent will be put on the column;
 * `inherited`: if *true*, the content of this column is inherited from parent pages
+
+### Template file
+
+Now we need to create a simple template. To access a column, use the ``container()`` helper:
+
+```jinja
+{% extends "Main.twig" %}
+
+{% block content %}
+<!-- BEGIn cols -->
+<div class="contentcol row">
+    <div class="col-sm-8 content-area" id="content">
+        {{ this.container().first()|raw }}
+    </div>
+    <aside class="col-sm-4 aside">
+        {{ this.container().next()|raw }}
+    </aside>
+</div>
+<!-- END cols -->
+{% endblock %}
+```
+
 
 Finaly, use the command line interface provided by the Bundle:
 
