@@ -47,7 +47,7 @@ For instance, you can add the following line to your `composer.json` file:
     // ...
     "require": {
         // ...
-        "backbee/layout-builder-bundle": "~1.0"
+        "backbee/layout-builder-bundle": "1.0.*@dev"
     },
 }
 ```
@@ -75,6 +75,45 @@ If the application is set up in *production mode*, you may need to empty the app
 ```bash
 $ ./backbee cache:clear
 ```
+
+## Archive layout creation
+
+You need a YAML configuration file in a new folder ``repository\Layouts\Definitions`` and a template.
+
+The archive layout will be composed by one main column and an aside column, both can accept all availables blocks.
+
+```yaml
+template: Archive.twig
+label: Archive Page Layout
+columns:
+  MainColumn:
+    mainZone: true
+    accept: ~
+    maxentry: ~
+    defaultClassContent: ~
+    inherited: false
+  SidePane:
+    mainZone: false
+    accept: ~
+    maxentry: ~
+    defaultClassContent: ~
+    inherited: true
+```
+
+This configuration have three required sections: `template`, `label` and `columns`.
+
+* `template`: the template filepath, by default will have a look into the ``repository/Layouts`` folder;
+* `label`: the template name, will be displayed in the "Template" choicelist when we create a new page;
+* `columns`: a list of columns that act like Main content sets (cf schema above)
+
+For each named columns, we have some properties availables:
+
+* `mainZone`: if *true*, link all contents from this column to the page;
+* `accept`: a collection of ClassContent the column can accept, all by default;
+* `maxentry`: limit the number of class contents in this column, *infinity* by default;
+* `defaultClassContent`: if used, by default this ClassContent will be put on the column;
+* `inherited`: if *true*, the content of this column is inherited from parent pages;
+
 
 Final thoughts
 ============
