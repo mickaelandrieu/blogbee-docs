@@ -30,10 +30,10 @@ Let's start with a schema which represent the BackBee architecture of our *Artic
 
 Each element have his object representation inside **BackBee core library**:
 
- - **Site** (``BackBuilder\Site\Site``) is your application.
- - **Page** (``BackBuilder\NestedNode\Page``) represent each page of your application, for example for blogbee have three pages: home page, article page and author page.
- - **Layout** (``BackBuilder\Site\Layout``) represent the layout of a page.
- - **ContentSet** (``BackBuilder\ClassContent\ContentSet``) represent the blocs/columns of your layouts, there are blocs can be editables by user.
+ - **Site** (``BackBee\Site\Site``) is your application.
+ - **Page** (``BackBee\NestedNode\Page``) represent each page of your application, for example for blogbee have three pages: home page, article page and author page.
+ - **Layout** (``BackBee\Site\Layout``) represent the layout of a page.
+ - **ContentSet** (``BackBee\ClassContent\ContentSet``) represent the blocs/columns of your layouts, there are blocs can be editables by user.
 
 ## LayoutBuilderBundle installation
 
