@@ -37,6 +37,45 @@ Each element have his object representation inside **BackBee core library**:
 
 ## LayoutBuilderBundle installation
 
+> A complete day will be dedicated to bundle system in BackBee
+
+Add the official LayoutBuilder bundle dependency using Composer.
+For instance, you can add the following line to your `composer.json` file:
+
+```javascript
+{
+    // ...
+    "require": {
+        // ...
+        "backbee/layout-builder-bundle": "~1.0"
+    },
+}
+```
+
+And then install the dependency in `vendor`:
+
+```bash
+$ composer update
+```
+
+> The command need to be executed in the folder where is located the `composer.json` file.
+
+Finaly, register the bundle in BackBee application: add this line at the end of the file `repository/Config/bundles.yml`.
+
+```yaml
+# bundles configuration
+debug: BackBee\Bundle\DebugBundle\Debug
+demo: BackBee\Bundle\DemoBundle\Demo
+toolbar: BackBee\Bundle\ToolbarBundle\Toolbar
+layoutbuilder: BackBee\Bundle\LayoutBuilderBundle\LayoutBuilder
+```
+
+If the application is set up in *production mode*, you may need to empty the application cache:
+
+```bash
+$ ./backbee cache:clear
+```
+
 Final thoughts
 ============
 
