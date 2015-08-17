@@ -83,6 +83,7 @@ You need a YAML configuration file in a new folder ``repository\Layouts\Definiti
 The archive layout will be composed by one main column and an aside column, both can accept all availables blocks.
 
 ```yaml
+# Archive.yml
 template: Archive.twig
 label: Archive Page Layout
 columns:
@@ -112,7 +113,15 @@ For each named columns, we have some properties availables:
 * `accept`: a collection of ClassContent the column can accept, all by default;
 * `maxentry`: limit the number of class contents in this column, *infinity* by default;
 * `defaultClassContent`: if used, by default this ClassContent will be put on the column;
-* `inherited`: if *true*, the content of this column is inherited from parent pages;
+* `inherited`: if *true*, the content of this column is inherited from parent pages
+
+Finaly, use the command line interface provided by the Bundle:
+
+```bash
+$ ./backbee layout:create --layout=Archive --site=blogbee.dev
+```
+
+> The ``site`` argument can accept URI or Site Label (available in ``sites.yml``).
 
 
 Final thoughts
