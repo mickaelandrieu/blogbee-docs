@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="http://www.backbee.com/day6/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+
+	<title>Day 6: Introduction to Bundles - BlogBee, the BackBee tutorial</title>
+
+        <link href="../css/bootstrap-3.0.3.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <link href="../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-3459992-28', 'blogbee.backbee.com');
+            ga('send', 'pageview');
+        </script>
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="..">BlogBee, the BackBee tutorial</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="..">Summary</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tutorial <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../day1/">Day 1: Installation of BackBee</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../day2/">Day 2: What is BlogBee</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../day3/">Day 3: Introduction to Content model</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../day4/">Day 4: the BackBee Edition mode</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../day5/">Day 5: Creation of layouts</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="./">Day 6: Introduction to Bundles</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                    <a rel="next" href="../day5/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li class="disabled">
+                    <a rel="prev" >
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/backbee/blogbee-docs">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#day-6-introduction-to-bundles-the-quotebundle">Day 6: introduction to bundles: the QuoteBundle</a></li>
+        
+            <li><a href="#introduction">Introduction</a></li>
+        
+            <li><a href="#what-for-today">What for today?</a></li>
+        
+    
+        <li class="main "><a href="#what-is-a-bundle">What is a bundle ?</a></li>
+        
+            <li><a href="#architecture">Architecture</a></li>
+        
+            <li><a href="#configuration">Configuration</a></li>
+        
+            <li><a href="#entrypoint-and-recipes">EntryPoint and Recipes</a></li>
+        
+            <li><a href="#recipes">Recipes</a></li>
+        
+            <li><a href="#activation">Activation</a></li>
+        
+    
+        <li class="main "><a href="#creation-of-quotebundle">Creation of QuoteBundle</a></li>
+        
+    
+        <li class="main "><a href="#final-thoughts">Final thoughts</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<h1 id="day-6-introduction-to-bundles-the-quotebundle">Day 6: introduction to bundles: the QuoteBundle</h1>
+<p>In the last episodes:</p>
+<ul>
+<li><a href="../day1/">Day1: Setup and install BackBee</a></li>
+<li><a href="../day2/">Day2: Bootstrap of BlogBee project</a></li>
+<li><a href="../day3/">Day3: Introduction to Content model</a></li>
+<li><a href="../day4/">Day4: The BackBee Edition mode</a></li>
+<li><a href="../day5/">Day5: Creation of Layouts</a></li>
+</ul>
+<h2 id="introduction">Introduction</h2>
+<p>Today we will talk about one of the most powerful features of BackBee.
+Indeed, the bundles allow CMS to enrich the new contents and behaviors.In addition, a bundle can become a manageable and independent application, which gives the CMS web framework capabilities.</p>
+<h2 id="what-for-today">What for today?</h2>
+<p>We will take a little time to define what a bundle and how to enable it in applications.
+As we have said, bundles are powerful and we will see how they can be used to add and/or alter behavior of CMS.
+Then we will create a simple bundle that adds the possibility to make quote.</p>
+<h1 id="what-is-a-bundle">What is a bundle ?</h1>
+<p><strong>Think of bundle as a plugin or an extension for BackBee.</strong></p>
+<p>Bundles are loaded with the application and can share class contents,
+commands, listeners, services, templates... everything you can imagine.</p>
+<p>When BackBee application is started, it loop into all the activated Bundles and register the configuration
+of each bundle and services if the Bundle share services. Also, all commands of Bundles are autoloaded by the BackBee console.</p>
+<p>For instance, the official <a href="https://github.com/backbee/DebugBundle"><code>DebugBundle</code></a> shares a list of useful commands to help you develop
+your website.</p>
+<h3 id="architecture">Architecture</h3>
+<p>Let's take a look at the architecture of our "QuoteBundle":</p>
+<pre><code>QuoteBundle
+    |_ ClassContent/
+        |_ Quote.yml
+    |_ Config/
+        |_ config.yml
+    |_ Resources/
+        |_ css/
+            |_ quote.css
+    |_ Templates/
+        |_ scripts/
+            |_ Quote.twig
+    |_ Quote.php
+</code></pre>
+
+<p>There is no best practices for now but some conventions:
+<em> all Commands classes MUST BE in the <code>Command</code> folder in order to be autoloaded "out of box";
+</em> <code>Config</code> folder, <code>config.yml</code> and the entry point (here, <code>Quote.php</code>) are required;
+* all Class Contents MUST BE in the <code>ClassContent</code> folder in order to be autoloaded "out of box";</p>
+<p>If you need more informations on Bundle architecture, checks the <a href="http://docs.backbee.com/developper-documentation/components/bundle/">official docs</a>.</p>
+<h3 id="configuration">Configuration</h3>
+<p>Each bundle need a configuration file, that contains configuration of Bundle loaded by BackBee. Look at this configuration reference file:</p>
+<pre><code class="yaml">bundle:
+    name: Foo bundle
+    description: A description of the bundle, displayed in extensions menu
+    author: John Doe &lt;john.doe@backbee.com&gt;
+    version: 1
+    enable: true
+</code></pre>
+
+<p>If you want more information, each property is documented in <a href="http://docs.backbee.com/developper-documentation/components/bundle/#bundle-folder-structure-and-entry-point">official docs</a>.</p>
+<h3 id="entrypoint-and-recipes">EntryPoint and Recipes</h3>
+<p>The entry point of bundle is a simple POPO (Plain Old PHP Object) that MUST extends <code>BackBee\Bundle\AbstractBundle</code> class.</p>
+<pre><code class="php">&lt;?php
+namespace BackBee\Bundle\FooBundle;
+/*
+ * Copyright (c) 2011-2015 Lp digital system
+ *
+ * This file is part of BackBee.
+ *
+ * BackBee is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * BackBee is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with BackBee. If not, see &lt;http://www.gnu.org/licenses/&gt;.
+ */
+use BackBee\BBApplication;
+use BackBee\Bundle\AbstractBundle;
+use BackBee\Config\Config;
+
+/**
+ * Bundle that provide something
+ *
+ * @author Charles Rouillon &lt;c.rouillon@lp-digital.fr&gt;
+ */
+class Foo extends AbstractBundle
+{
+    /**
+     * {@inheritdoc}
+     */
+    public function start()
+    {
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function stop()
+    {
+    }
+
+    /**
+     * Override the expected behavior when BackBee load Templating helpers
+     */
+    public function loadHelpers(BBApplication $application, Config $config)
+    {
+        // do some stuff here
+    }
+
+    /**
+     * Override the expected behavior when BackBee load Templates
+     */
+    public function loadTemplates(BBApplication $application, Config $config)
+    {
+        // do some stuff here
+    }
+}
+</code></pre>
+
+<p>This class introduce two functions that are called when Application start and stop.
+Others are called recipes and allow you to override some Bundle behaviors.</p>
+<h3 id="recipes">Recipes</h3>
+<p>By default, BackBee declare some automatic behaviors in Bundles related to ressources (commands, templates, class contents ...).
+But you can complete or totaly change all the behaviors with Recipes.
+In the class entry point and in the configuration file, we have declared two functions that allow us to manage how templates and templates helpers
+will be managed by BackBee for this Bundle (for instance, register them only in a specific application context).</p>
+<p>All the recipes are documented in the <a href="http://docs.backbee.com/developper-documentation/components/bundle/#how-the-bundle-loader-works">official docs</a>, note that you can also add a <code>custom</code> behavior and that theses recipes are called when the application start.</p>
+<h3 id="activation">Activation</h3>
+<p>In <code>repository/Config/bundles.yml</code> register the entry point class to an unique key.</p>
+<pre><code class="yaml"># repository/Config/bundles.yml
+#...
+foo: BackBee\Bundle\FooBundle\Foo
+</code></pre>
+
+<p>Keep in mind the order of bundles, because you can override the configuration of your
+application and all the configurations are merged recursively. So if a bundle A have a service called foo
+and then a bundle called B have also a service called foo,
+your application will only have reference to the service declared in the bundle B.</p>
+<blockquote>
+<p>As always when you alter the application configuration, you may need to clear the cache.</p>
+</blockquote>
+<h1 id="creation-of-quotebundle">Creation of QuoteBundle</h1>
+<p>Let's go: create the architecture and the Quote class.
+Then we have to create the block quote. Let's stay simple, only two fields:
+<em> the author of the Quote
+</em> the message</p>
+<pre><code class="yaml"># /bundle/QuoteBundle/ClassContent/Quote.yml
+Quote:
+    properties:
+        name: Quote demo
+        description: &quot;Block that provide Quote feature&quot;
+        category: [Quote] # a category (at least) is required
+    elements:
+        quote:
+            type: BackBee\ClassContent\Element\Text
+            label: Quote
+            default:
+                value: &quot;Put your quote here ...&quot;
+            parameters:
+                rte: lite
+        author:
+            type: BackBee\ClassContent\Element\Text
+            label: Author
+            default:
+                value: &quot;Put your name here ...&quot;
+            parameters:
+                rte: lite
+</code></pre>
+
+<p>And of course, the corresponding (minimal) template:</p>
+<pre><code class="twig">{# /bundle/QuoteBundle/Templates/scripts/Quote.twig #}
+&lt;div id=&quot;quote_thread&quot; {{ this.bbcontent(null, {'class': 'quote-block'})|raw }}&gt;
+    &lt;div {{ this.bbcontent(quote, {'class': 'quote-value'})|raw }}&gt;
+        {{ this.render(quote)|raw }}
+    &lt;/div&gt;
+    &lt;div {{ this.bbcontent(author, {'class': 'quote-author'})|raw }}&gt;
+        {{ this.render(author)|raw }}
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>That's simple.</p>
+<p>Additionaly, you can provide a logo for this new Class Content: the only thing to do is to create an image called <em>Quote.png</em> in <code>/bundle/QuoteBundle/Resources/img/contents/Quote/</code>.</p>
+<p>You can now access to a new block on "Quote" category !</p>
+<h1 id="final-thoughts">Final thoughts</h1>
+<p>We saw how to make new Bundle that provide simple features. Tomorrow we will see more: persisting data into entities in an manageable bundle. Happy coding!</p></div>
+        </div>
+
+	<footer class="col-md-12">
+		<hr>
+		
+		<center>Copyright &copy; 2014-2015, <a href="http://www.backbee.com">BackBee project</a>.</center>
+		
+		<center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+	</footer>
+
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script src="../js/base.js"></script>
+    </body>
+</html>
