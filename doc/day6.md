@@ -13,27 +13,27 @@ Introduction
 ---------------
 
 Today we will talk about one of the most powerful features of BackBee.
-Indeed, the bundles allow CMS to enrich the new contents and behaviors.In addition, a bundle can become a manageable and independent application, which gives the CMS web framework capabilities.
+Indeed, bundles allow CMS to provide new content types and behaviors.In addition, a bundle can become a manageable and independent application, which gives the CMS web framework capabilities.
 
 
-What for today?
+What's for today?
 -------------------
 
-We will take a little time to define what a bundle and how to enable it in applications.
-As we have said, bundles are powerful and we will see how they can be used to add and/or alter behavior of CMS.
-Then we will create a simple bundle that adds the possibility to make quote.
+We will take a little time to define what a bundle is and how to enable it in applications.
+As we have said, bundles are powerful tools and we will see how they can be used to add and/or alter behavior of the CMS.
+Then we will create a simple bundle that adds a feature allowing us to insert quotes.
 
 
 What is a bundle ?
 ==============
 
-**Think of bundle as a plugin or an extension for BackBee.**
+**Think of a bundle as a plugin or an extension for BackBee.**
 
 Bundles are loaded with the application and can share class contents,
 commands, listeners, services, templates... everything you can imagine.
 
-When BackBee application is started, it loop into all the activated Bundles and register the configuration
-of each bundle and services if the Bundle share services. Also, all commands of Bundles are autoloaded by the BackBee console.
+When BackBee application is started, it loads all the activated Bundles and registers the configuration
+of each bundle and services if the Bundle shares services. Also, all commands of Bundles are autoloaded by the BackBee console.
 
 For instance, the official [`DebugBundle`](https://github.com/backbee/DebugBundle) shares a list of useful commands to help you develop
 your website.
@@ -57,16 +57,16 @@ QuoteBundle
     |_ Quote.php
 ```
 
-There is no best practices for now but some conventions:
+There are no best practices for now but some common ways:
 * all Commands classes MUST BE in the ``Command`` folder in order to be autoloaded "out of box";
-* ``Config`` folder, ``config.yml`` and the entry point (here, ``Quote.php``) are required;
+* ``Config`` folder, ``config.yml`` and an entry point (here, ``Quote.php``) are required;
 * all Class Contents MUST BE in the ``ClassContent`` folder in order to be autoloaded "out of box";
 
-If you need more informations on Bundle architecture, checks the [official docs](http://docs.backbee.com/developper-documentation/components/bundle/).
+If you need more information on Bundle architecture, check the [official docs](http://docs.backbee.com/developper-documentation/components/bundle/).
 
 ### Configuration
 
-Each bundle need a configuration file, that contains configuration of Bundle loaded by BackBee. Look at this configuration reference file:
+Each bundle needs a configuration file, that contains Bundle configuration loaded by BackBee. Look at this configuration reference file:
 
 ```yaml
 bundle:
@@ -78,6 +78,7 @@ bundle:
 ```
 
 If you want more information, each property is documented in [official docs](http://docs.backbee.com/developper-documentation/components/bundle/#bundle-folder-structure-and-entry-point).
+
 ### EntryPoint and Recipes
 
 The entry point of bundle is a simple POPO (Plain Old PHP Object) that MUST extends ``BackBee\Bundle\AbstractBundle`` class.
@@ -146,7 +147,7 @@ class Foo extends AbstractBundle
 }
 ```
 
-This class introduce two functions that are called when Application start and stop.
+This class introduces two functions that are called when Application start and stop.
 Others are called recipes and allow you to override some Bundle behaviors.
 
 ### Recipes
@@ -160,7 +161,7 @@ All the recipes are documented in the [official docs](http://docs.backbee.com/de
 
 ### Activation
 
-In ``repository/Config/bundles.yml`` register the entry point class to an unique key.
+In ``repository/Config/bundles.yml`` associate the PHP fully qualified class name (FQCN) entry point  to a string key that require to be unique.
 
 ```yaml
 # repository/Config/bundles.yml
@@ -168,20 +169,19 @@ In ``repository/Config/bundles.yml`` register the entry point class to an unique
 foo: BackBee\Bundle\FooBundle\Foo
 ```
 
-Keep in mind the order of bundles, because you can override the configuration of your
-application and all the configurations are merged recursively. So if a bundle A have a service called foo
+Keep in mind the order of bundles, because you can override configuration of your application and all the configurations are merged recursively. So if a bundle A have a service called foo
 and then a bundle called B have also a service called foo,
 your application will only have reference to the service declared in the bundle B.
 
 > As always when you alter the application configuration, you may need to clear the cache.
 
-Creation of QuoteBundle
-=========================
+Creating QuoteBundle
+====================
 
-Let's go: create the architecture and the Quote class.
-Then we have to create the block quote. Let's stay simple, only two fields:
-* the author of the Quote
-* the message
+Let's go: create the architecture and the Quote PHP class file.
+Then we have to create the block quote. Let's keep it simple, only two fields:
+* the author
+* the quote
 
 ```yaml
 # /bundle/QuoteBundle/ClassContent/Quote.yml
@@ -189,7 +189,7 @@ Quote:
     properties:
         name: Quote demo
         description: "Block that provide Quote feature"
-        category: [Quote] # a category (at least) is required
+        category: [Notes] # a category (at least) is required
     elements:
         quote:
             type: BackBee\ClassContent\Element\Text
@@ -223,11 +223,11 @@ And of course, the corresponding (minimal) template:
 
 That's simple.
 
-Additionaly, you can provide a logo for this new Class Content: the only thing to do is to create an image called *Quote.png* in `/bundle/QuoteBundle/Resources/img/contents/Quote/`.
+Additionaly, you can provide a logo for this new Class Content: the only required thing is to create an image called *Quote.png* in `/bundle/QuoteBundle/Resources/img/contents/Quote/`.
 
-You can now access to a new block on "Quote" category !
+You can now access the new Quote Block in "Quote" in "Notes" category!
 
 Final thoughts
 ============
 
-We saw how to make new Bundle that provide simple features. Tomorrow we will see more: persisting data into entities in an manageable bundle. Happy coding!
+We have seen how to create a new Bundle that has simple features. Tomorrow we will see more: persisting data into entities in a manageable bundle. Happy coding!

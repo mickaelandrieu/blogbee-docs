@@ -13,7 +13,7 @@ Introduction
 The Content model is complex to understand without practical examples. As a user manipulates contents through the toolbar, we will do the link between our files and configurations and the toolbar features activated and displayed. This way, you will understand how to provide features to your final users.
 
 
-What for today?
+What's for today?
 -------------------
 In **Day 3**, we added an Article content and this is great but you still can't edit it.
 Today, we will also discover the different "modes" of the toolbar and then we will complete our configuration files in order to allow our final users to create and edit articles.
