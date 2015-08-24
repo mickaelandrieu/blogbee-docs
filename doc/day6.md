@@ -230,4 +230,4 @@ You can now access the new Quote Block in "Quote" in "Notes" category!
 Final thoughts
 ============
 
-We have seen how to create a new Bundle that has simple features. Tomorrow we will see more: persisting data into entities in a manageable bundle. Happy coding!
+We have seen how to create a new Bundle that has simple features. Tomorrow we will see more: persisting data into database using Doctrine entities in a manageable bundle. Happy coding!
