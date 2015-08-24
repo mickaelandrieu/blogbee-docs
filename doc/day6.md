@@ -58,9 +58,9 @@ QuoteBundle
 ```
 
 There are no best practices for now but some common ways:
-* all Commands classes MUST BE in the ``Command`` folder in order to be autoloaded "out of box";
+* all Commands classes MUST BE in the ``Command`` folder in order to be autoloaded;
 * ``Config`` folder, ``config.yml`` and an entry point (here, ``Quote.php``) are required;
-* all Class Contents MUST BE in the ``ClassContent`` folder in order to be autoloaded "out of box";
+* all Class Contents MUST BE in the ``ClassContent`` folder in order to be autoloaded;
 
 If you need more information on Bundle architecture, check the [official docs](http://docs.backbee.com/developper-documentation/components/bundle/).
 
