@@ -291,7 +291,7 @@ In the class entry point and in the configuration file, we have declared two fun
 will be managed by BackBee for this Bundle (for instance, register them only in a specific application context).</p>
 <p>All the recipes are documented in the <a href="http://docs.backbee.com/developper-documentation/components/bundle/#how-the-bundle-loader-works">official docs</a>, note that you can also add a <code>custom</code> behavior and that theses recipes are called when the application start.</p>
 <h3 id="activation">Activation</h3>
-<p>In <code>repository/Config/bundles.yml</code> associate the PHP fully qualified class name (FQCN) entry point  to a string key that require to be unique.</p>
+<p>In <code>repository/Config/bundles.yml</code> associate the PHP fully qualified class name (FQCN) entry point to a string key that has to be unique..</p>
 <pre><code class="yaml"># repository/Config/bundles.yml
 #...
 foo: BackBee\Bundle\FooBundle\Foo
