@@ -119,7 +119,7 @@ For each named column, the following properties are available:
 
 ### Template file
 
-Now we need to create a simple template. To render a column, use the `container()` to get it in your templates.:
+Now we need to create a simple template. To render a column, use the `container()` to display it in your templates.:
 
 ```jinja
 {% extends "Main.twig" %}

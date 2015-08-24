@@ -161,7 +161,7 @@ All the recipes are documented in the [official docs](http://docs.backbee.com/de
 
 ### Activation
 
-In ``repository/Config/bundles.yml`` associate the PHP fully qualified class name (FQCN) entry point  to a string key that require to be unique.
+In ``repository/Config/bundles.yml`` associate the PHP fully qualified class name (FQCN) entry point to a string key that has to be unique..
 
 ```yaml
 # repository/Config/bundles.yml
