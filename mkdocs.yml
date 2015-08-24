@@ -13,7 +13,7 @@ pages:
 - ['day2.md', 'Tutorial', 'Day 2: What is BlogBee']
 - ['day3.md', 'Tutorial', 'Day 3: Introduction to Content model']
 - ['day4.md', 'Tutorial', 'Day 4: the BackBee Edition mode']
-- ['day5.md', 'Tutorial', 'Day 5: Creation of layouts']
+- ['day5.md', 'Tutorial', 'Day 5: Creating layouts']
 - ['day6.md', 'Tutorial', 'Day 6: Introduction to Bundles']
 
 copyright: Copyright &copy; 2014-2015, <a href="http://www.backbee.com">BackBee project</a>.
