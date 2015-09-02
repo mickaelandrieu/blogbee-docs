@@ -3,7 +3,7 @@
 $( document ).ready(function() {
     hljs.initHighlightingOnLoad();
     $('table').addClass('table table-striped table-hover');
-    $('img').addClass('img-responsive');
+    $('#main-container img').addClass('img-responsive');
 });
 
 
