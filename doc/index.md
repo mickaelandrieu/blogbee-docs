@@ -1,5 +1,9 @@
 # Summary
 
+[![Docs introduction](img/start_tutorial.jpg "Start tutorial")](day1.md)
+
+-------------------------------------------------------------
+
 * Day 1: [BackBee standard edition installation and first contribution](day1.md).
 * Day 2: [Site conception and BackBee content management](day2.md)
 * Day 3: [ContentType and template with render modes](day3.md)
