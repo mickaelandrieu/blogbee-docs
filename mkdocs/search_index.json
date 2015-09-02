@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Summary\n\n\n\n\nDay 1: \nBackBee standard edition installation and first contribution\n.\n\n\nDay 2: \nSite conception and BackBee content management\n\n\nDay 3: \nContentType and template with render modes\n\n\nDay 4: \nBackBee Edition mode\n\n\nDay 5: \nCreating layouts\n\n\nDay 6: \nSimple bundle creation (quote bundle)\n\n\nDay 7: Bundle administration (Disqus comment management inside bundle)\n\n\nDay 8: Email notification and User association: the event/listener system", 
+            "text": "Summary\n\n\n\n\n\n\n\n\nDay 1: \nBackBee standard edition installation and first contribution\n.\n\n\nDay 2: \nSite conception and BackBee content management\n\n\nDay 3: \nContentType and template with render modes\n\n\nDay 4: \nBackBee Edition mode\n\n\nDay 5: \nCreating layouts\n\n\nDay 6: \nSimple bundle creation (quote bundle)\n\n\nDay 7: Bundle administration (Disqus comment management inside bundle)\n\n\nDay 8: Email notification and User association: the event/listener system", 
             "title": "Summary"
         }, 
         {
